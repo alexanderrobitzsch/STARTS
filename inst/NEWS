@@ -1,0 +1,46 @@
+********************************************************
+****     CHANGES IN STARTS PACKAGE VERSIONS         ****
+********************************************************
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Functions for the STARTS model (STARTS)
+A. Robitzsch & O. Luedtke
+
+
+mailto:
+-------
+Alexander Robitzsch
+robitzsch@ipn.uni-kiel.de
+
+For reporting a bug, please always provide a reproducible R script 
+and (if necessary) a corresponding dataset.
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+------------------------------------------------------------------------
+VERSIONS STARTS 0.1  |  2017-06-24  |  Last: STARTS 0.1-2
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+------------------------------------------------------------------------
+VERSIONS STARTS 0.0  |  2017-05-12  |  Last: STARTS 0.0-9
+------------------------------------------------------------------------
+
+ADDED * moved 'starts_cov' and 'starts_sim1dim' from sirt package to 
+        STARTS package
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: starts_cov (1)
+

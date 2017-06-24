@@ -1,0 +1,19 @@
+Package: STARTS
+Type: Package
+Title: Functions for the STARTS Model
+Version: 0.1-2
+Date: 2017-06-24 17:35:29
+Author: Alexander Robitzsch [aut,cre], Oliver Luedtke [aut]
+Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
+Description: 
+    Contains functions for estimating the STARTS model of
+    Kenny and Zautra (1995, 2001) <DOI:10.1037/0022-006X.63.1.52>,
+    <DOI:10.1037/10409-008>.
+Depends:
+    R (>= 3.1)
+Imports:
+    stats, utils
+Suggests:
+    LAM, lavaan, sirt (>= 2.0)
+URL: https://github.com/alexanderrobitzsch/STARTS
+License: GPL (>= 2)
