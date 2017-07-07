@@ -24,12 +24,12 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.1  |  2017-06-24  |  Last: STARTS 0.1-2
+VERSIONS STARTS 0.1  |  2017-07-07  |  Last: STARTS 0.1-3
 ------------------------------------------------------------------------
 
-xxx   * ...
+NOTE  * included synthetic datasets used in Luedtke et al. (in press)
 
-DATA  * included/modified datasets: ---
+DATA  * included/modified datasets: data.starts01a, data.starts01b
 EXAMP * included/modified examples: ---
 
 
