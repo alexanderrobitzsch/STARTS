@@ -24,10 +24,12 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.1  |  2017-07-07  |  Last: STARTS 0.1-3
+VERSIONS STARTS 0.1  |  2017-07-31  |  Last: STARTS 0.1-4
 ------------------------------------------------------------------------
 
 NOTE  * included synthetic datasets used in Luedtke et al. (in press)
+FIXED * fixed bug in the STARTS example which prevented the syntax from
+        runnning correctly (thanks to Judith Biesen)
 
 DATA  * included/modified datasets: data.starts01a, data.starts01b
 EXAMP * included/modified examples: ---

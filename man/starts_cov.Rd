@@ -93,16 +93,17 @@ Alexander Robitzsch
 #############################################################################
 
 library(LAM)
+library(sirt)
 
 ## define list with input data
 ## S ... covariance matrix, M ... mean vector
 
 # read covariance matrix of data in Wu (older cohort, positive affect)
-S <- matrix( c( 12.745, 7.046, 6.906, 6.070, 5.047, 6.110
-    7.046, 14.977, 8.334, 6.714, 6.91, 6.624
-    6.906, 8.334, 13.323, 7.979, 8.418, 7.951
-    6.070, 6.714, 7.979, 12.041, 7.874, 8.099
-    5.047, 6.91, 8.418, 7.874, 13.838, 9.117
+S <- matrix( c( 12.745, 7.046, 6.906, 6.070, 5.047, 6.110,
+    7.046, 14.977, 8.334, 6.714, 6.91, 6.624,
+    6.906, 8.334, 13.323, 7.979, 8.418, 7.951,
+    6.070, 6.714, 7.979, 12.041, 7.874, 8.099,
+    5.047, 6.91, 8.418, 7.874, 13.838, 9.117,
     6.110, 6.624, 7.951, 8.099, 9.117, 15.132 ) ,  
     nrow=6 , ncol=6 , byrow=TRUE )
 W <- 6   # number of measurement waves
@@ -118,10 +119,11 @@ model <- function( pars , data ){
     var_ar <- pars["va"]
     var_state <- pars["vs"]
     a <- pars["b"]
-    Sigma <- STARTS::starts_cov( W=W , var_trait=vt , var_ar=va , var_state=vs , a=b )
+    Sigma <- STARTS::starts_cov( W=W , var_trait=var_trait , 
+                var_ar=var_ar , var_state=var_state , a=a )
     # evaluate log-likelihood
     ll <- LAM::loglike_mvnorm( S = data$S , Sigma = Sigma , M = data$M , mu = mu ,
-                n = data$n , lambda = 1E-3)
+                n = data$n , lambda = 1E-5)
     return(ll)
 }
 #** Note: 
@@ -144,15 +146,18 @@ pars_lower <- c( .001 , .001 , .001 , .001 )
 pars_upper <- c( 10 , 10 , 10 , .999 ) 
 #*** define prior distributions | use prior sample size of 3
 prior_model <- "
-    vt ~ dinvgamma(NA , 3 / 2 , 3 * .33 / 2 )
-    va ~ dinvgamma(NA , 3 , 3 * .33 / 2)    
-    vs ~ dinvgamma(NA , 3 , 3 * .33 / 2)        
-    b ~ dbeta(NA, 4 , 4 )
+    vt ~ dinvgamma2(NA, 3, .33 )
+    va ~ dinvgamma2(NA, 3, .33 )    
+    vs ~ dinvgamma2(NA, 3, .33 )        
+    b ~ dbeta(NA, 4, 4 )
         "
-#*** estimate model with 'sirt::amh' function		
+#*** define number of iterations
+n.burnin <- 500
+n.iter <- 2000 
+#*** estimate model with 'LAM::amh' function       
 mod <- LAM::amh( data=data, nobs=data$n, pars=pars, model=model,  
             prior=prior_model, proposal_sd=proposal_sd, n.iter=n.iter, 
-            n.burnin=n.burnin, pars_lower=pars_lower, pars_upper=pars_upper)
+            n.burnin=n.burnin, pars_lower=pars_lower, pars_upper=pars_upper)           
 #*** model summary
 summary(mod)
 
