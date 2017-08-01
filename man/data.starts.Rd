@@ -6,12 +6,12 @@
 \docType{data}
 
 \title{
-Multilevel Datasets
+Datasets in the \pkg{STARTS} Package
 }
 
 \description{
-Datasets for conducting multilevel IRT analysis. This dataset is used
-in the examples of the function \code{\link{mcmc.2pno.ml}}. 
+Some datasets for illustration used in the examples of the
+\pkg{STARTS} package. 
 }
 
 \usage{
@@ -25,7 +25,7 @@ data(data.starts01b)
 \itemize{	
 \item  \code{data.starts01a}.
 A resimulated dataset containing three factors from the Big5 scale measured at
-five time points used in Luedtke et al. (xxxx). The dataset only contais observations
+five time points used in Luedtke et al. (xxxx). The dataset only contains observations
 without missing data. 
   
 \code{'data.frame':   890 obs. of  16 variables:} \cr
@@ -47,7 +47,7 @@ without missing data.
 \code{ $ O5: num  1.217 -1.637 -0.29 -0.678 0.646 ...} \cr
 
   
-\item  \code{data.starts01b}. Like \code{data.starts01a}, but the datasets also
+\item  \code{data.starts01b}. Like \code{data.starts01a}, but the dataset also
 contains cases with missing data. 
   
 \code{'data.frame':   3215 obs. of  17 variables:} \cr
