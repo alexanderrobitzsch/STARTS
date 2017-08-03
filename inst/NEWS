@@ -24,15 +24,18 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.1  |  2017-08-01  |  Last: STARTS 0.1-7
+VERSIONS STARTS 0.1  |  2017-08-03  |  Last: STARTS 0.1-9
 ------------------------------------------------------------------------
 
 NOTE  * included synthetic datasets used in Luedtke et al. (in press)
 FIXED * fixed a bug in the STARTS example which prevented the syntax 
         from running correctly (thanks to Judith Biesen)
+NOTE  * extended example in 'starts_cov' which now contains parts of
+        the results and penalized maximum likelihood estimation of the
+        STARTS model
 
 DATA  * included/modified datasets: data.starts01a, data.starts01b
-EXAMP * included/modified examples: ---
+EXAMP * included/modified examples: starts_cov (1)
 
 
 
