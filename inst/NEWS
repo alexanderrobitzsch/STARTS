@@ -24,7 +24,7 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.1  |  2017-08-03  |  Last: STARTS 0.1-9
+VERSIONS STARTS 0.1  |  2017-08-27  |  Last: STARTS 0.1-51
 ------------------------------------------------------------------------
 
 NOTE  * included synthetic datasets used in Luedtke et al. (in press)
@@ -33,9 +33,13 @@ FIXED * fixed a bug in the STARTS example which prevented the syntax
 NOTE  * extended example in 'starts_cov' which now contains parts of
         the results and penalized maximum likelihood estimation of the
         STARTS model
+NOTE  * renamed 'starts_cov' to 'starts_uni_cov'. 'starts_cov' is now
+        deprecated and should be replaced.
+ADDED * added function 'starts_uni_estimate' for convenient estimation 
+        of the univariate STARTS model
 
 DATA  * included/modified datasets: data.starts01a, data.starts01b
-EXAMP * included/modified examples: starts_cov (1)
+EXAMP * included/modified examples: starts_uni (1,2)
 
 
 

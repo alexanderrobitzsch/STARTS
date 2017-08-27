@@ -1,29 +1,120 @@
-\name{starts_cov}
+%% File Name: starts_uni.Rd
+%% File Version: 0.28
+%% File Last Change: 2017-08-27 14:41:07
+
+\name{starts_uni}
+\alias{starts_uni_cov}
 \alias{starts_cov}
 \alias{starts_sim1dim}
+\alias{starts_uni_estimate}
+\alias{starts_uni}
+\alias{starts_uni_sim}
+\alias{summary.starts_uni}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
 
 
 \title{
-Some Functions for the STARTS model
+Functions for the Univariate STARTS Model
 }
 
 
 \description{
 Functions for computing the covariance matrix and simulating data
-from the univariate STARTS model (Kenny & Zautra, 1995, 2001).
+from the univariate STARTS model (Kenny & Zautra, 1995, 2001). The STARTS model can
+be estimated with maximum likelihood, penalized maximum likelihood (i.e., 
+maximum posterior estimation) or Markov Chain Monte Carlo (INCLUDED IN 
+FUTURE VERSIONS). See Luedtke et al. (xxxx) for comparisons among estimation methods.
+
+Missing data cannot be handled in the recent package version. Full information
+maximum likelihood will be included in future package versions. 
 }
 
 \usage{
-starts_cov(W, var_trait, var_ar, var_state, a )
+## estimation of univariate STARTS model
+starts_uni_estimate(data = NULL, covmat = NULL, nobs = NULL, estimator = "ML", 
+    pars_inits = NULL, prior_var_trait = c(3, 0.33), prior_var_ar = c(3, 0.33), 
+    prior_var_state = c(3, 0.33), prior_a = c(3, 0.5), est_var_trait = TRUE, 
+    est_var_ar = TRUE, est_var_state = TRUE, var_meas_error = 0, constraints = TRUE, 
+    time_index = NULL, type = "stationary")
 
+\method{summary}{starts_uni}(object, digits = 3, file = NULL, ...)
+
+## computation of covariance matrix 
+starts_uni_cov(W, var_trait, var_ar, var_state, a, time_index = NULL )
+
+## simulation of STARTS model
+starts_uni_sim(N, W, var_trait, var_ar, var_state, a, time_index = NULL )
+
+#--- deprecated functions
+starts_cov(W, var_trait, var_ar, var_state, a )
 starts_sim1dim(N, W, var_trait, var_ar, var_state, a )
 }
 
 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
+  \item{data}{
+Data frame
+}
+  \item{covmat}{
+Covariance matrix (not necessary if \code{data} is provided)
+}
+  \item{nobs}{
+Number of observations (not necessary if \code{data} is provided)
+}
+  \item{estimator}{
+Type of estimator: \code{"ML"} for maximum likelihood estimation,
+\code{"PML"} for penalized maximum likelihood estimation and
+\code{"MCMC"} for Markov chain Monte Carlo estimation (NOT YET INCLUDED) 
+}
+  \item{pars_inits}{
+Optional vector of initial parameters
+}
+  \item{prior_var_trait}{
+Vector of length two specifying the inverse gamma prior for trait variance. The first entry
+is teh prior sample size, the second entry the guess of the proportion
+of the variance that is attributed to the trait variance. See Luedtke et al. (xxxx)
+for further details.  
+}
+  \item{prior_var_ar}{
+Prior for autoregressive variance. See \code{prior_var_trait} for
+details.
+}
+  \item{prior_var_state}{
+Prior for state variance. See \code{prior_var_trait} for
+details.
+}
+  \item{prior_a}{
+Vector of length two for specification of the beta prior for stability parameter \code{a}.
+The first entry corresponds to the prior sample size, the second entry corresponds
+to the prior guess of the stability parameter. 
+}
+  \item{est_var_trait}{
+Logical indicating whether the trait variance should be estimated.
+}
+  \item{est_var_ar}{
+Logical indicating whether the autoregressive variance should be estimated.
+}
+  \item{est_var_state}{
+Logical indicating whether the state variance should be estimated.
+}
+  \item{var_meas_error}{
+Value of known measurement variance. Could be based on a reliability estimate of
+internal consistency, for example.
+}
+  \item{constraints}{
+Logical indicating whether variances should be constrained to be positive
+}
+  \item{time_index}{
+Integer vector of time indices. Time points can be non-equidistant, but must 
+be integer values.
+
+}
+  \item{type}{
+Type of starts model. Only \code{"stationary"} is implemented in this
+package version.
+}
 \item{W}{
 Number of measurement waves.
 }
@@ -42,7 +133,13 @@ Sample size of persons
 \item{a}{
 Stability parameter
 }      
+\item{object}{Object of class \code{starts_uni}}
+\item{digits}{Number of digits after decimal in \code{summary} output}
+\item{file}{Optional file name for \code{summary} output}
+\item{\dots}{Further arguments to be passed}
 }
+
+%%   'object' 'digits' 'file' '...'
 
 %%\details{  
 %% xxx    
@@ -50,7 +147,16 @@ Stability parameter
 
 
 \value{
-Covariance matrix or a data frame of simulated values
+Output of \code{starts_uni_estimate}
+
+
+\item{coef}{Vector of estimated parameters}
+\item{\dots}{Further values}
+
+
+Output of \code{starts_uni_cov} is a covariance matrix.
+
+Output of \code{starts_uni_sim} is a data frame containing simulated values.
 }
 
 %% include references
@@ -64,6 +170,10 @@ Kenny, D. A., & Zautra, A. (2001). Trait-state models for
 longitudinal data. In L. M. Collins & A. G. Sayer (Eds.), 
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
+
+Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
+A Bayesian approach using Markov Chain Monte Carlo techniques. 
+\emph{Psychological Methods}, \bold{xx}, xxx-xxx.
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck 
 Depression Inventory II: A latent traitstate-occasion model. 
@@ -89,8 +199,10 @@ Alexander Robitzsch
 \examples{
 \dontrun{    
 #############################################################################
-# EXAMPLE 1: STARTS model | Data from Wu (2016)
+# EXAMPLE 1: STARTS model directly specified in LAM or lavaan  
 #############################################################################
+
+## Data from Wu (2016)
 
 library(LAM)
 library(sirt)
@@ -123,7 +235,7 @@ model <- function( pars , data ){
     var_ar <- pars["va"]
     var_state <- pars["vs"]
     a <- pars["b"]
-    Sigma <- STARTS::starts_cov( W=W , var_trait=var_trait , 
+    Sigma <- STARTS::starts_uni_cov( W=W , var_trait=var_trait , 
                 var_ar=var_ar , var_state=var_state , a=a )
     # evaluate log-likelihood
     ll <- LAM::loglike_mvnorm( S = data$S , Sigma = Sigma , M = data$M , mu = mu ,
@@ -131,7 +243,7 @@ model <- function( pars , data ){
     return(ll)
 }
 #** Note: 
-#   (1) The function starts_cov calculates the model implied covariance matrix
+#   (1) The function starts_uni_cov calculates the model implied covariance matrix
 #       for the STARTS model.
 #   (2) The function loglike_mvnorm evaluates the loglikelihood for a multivariate
 #       normal distribution given sample and population means M and mu, and sample 
@@ -268,12 +380,45 @@ summary(mod)
 lavaan::fitMeasures(mod)
 coef(mod)[ ! duplicated( names(coef(mod))) ]
   ##           vt          vs           b          va          v1 
-  ##  0.001000023 0.349754630 0.916789054 0.651723144 0.103948711 
+  ##  0.001000023 0.349754630 0.916789054 0.651723144 0.103948711
+  
+#############################################################################
+# EXAMPLE 2: STARTS model specification using starts_uni_estimate  
+#############################################################################  
+
+## use simulated dataset according to Luedtke et al. (xxxx)
+
+data(data.starts01a, package="STARTS")
+dat <- data.starts01a
+
+#--- covariance matrix and number of observations
+covmat <- stats::cov( dat[ , paste0("E",1:5) ] )
+nobs <- nrow(dat)
+
+#*** Model 1a: STARTS model with ML estimation 
+mod1a <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs)
+summary(mod1a)
+
+#*** Model 1b: STARTS model with penalized ML estimation using the default priors
+mod1b <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs, estimator="PML")
+summary(mod1b)
+
+#*** Model 2: remove autoregressive process
+mod2 <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs, est_var_ar=FALSE)
+summary(mod2)
+
+#*** Model 3: remove stable trait factor
+mod3 <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs, est_var_trait=FALSE)
+summary(mod3)
+
+#*** Model 4: remove state variance from the model
+mod4 <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs, est_var_state=FALSE)
+summary(mod4)
 }
 }
 
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-%\keyword{DETECT}
-%\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+%\keyword{vvvvv}
+%\keyword{vvvvv}% __ONLY ONE__ keyword per line

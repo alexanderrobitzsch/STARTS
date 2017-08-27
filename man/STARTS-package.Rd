@@ -1,3 +1,7 @@
+%% File Name: STARTS-package.Rd
+%% File Version: 0.04
+%% File Last Change: 2017-08-27 12:18:32
+
 \name{STARTS-package}
 \alias{STARTS-package}
 \alias{STARTS}
@@ -50,6 +54,9 @@ longitudinal data. In L. M. Collins & A. G. Sayer (Eds.),
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
 
+Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
+A Bayesian approach using Markov Chain Monte Carlo techniques. 
+\emph{Psychological Methods}, \bold{xx}, xxx-xxx.
 }
 
 %\seealso{

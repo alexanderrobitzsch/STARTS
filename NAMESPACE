@@ -12,6 +12,10 @@
 #*************** R Basics / Linking To *************
 #***************************************************
 
+importFrom(stats, cov)
+importFrom(stats, dbeta)
+importFrom(stats, na.omit)
+importFrom(stats, pchisq)
 importFrom(stats, rnorm)
 importFrom(utils, flush.console)
 importFrom(utils, packageDescription)
@@ -22,8 +26,12 @@ importFrom(utils, packageDescription)
 #********** Imports (own packages) *****************
 #***************************************************
 
-# importFrom(CDM, csink)
-# importFrom(CDM, osink)
+importFrom(CDM, csink)
+importFrom(CDM, osink)
+importFrom(LAM, loglike_mvnorm)
+importFrom(LAM, pmle)
+importFrom(sirt, dinvgamma2)
+
 
 
 #***************************************************
@@ -40,6 +48,9 @@ importFrom(utils, packageDescription)
 ####################################################
 
 export(starts_cov)
+export(starts_uni_cov)
+export(starts_uni_estimate)
+export(starts_uni_sim)
 export(starts_sim1dim)
 
 
@@ -51,4 +62,4 @@ export(starts_sim1dim)
 ################################################
 
 
-# S3method(summary, STARTS)
+S3method(summary, starts_uni)
