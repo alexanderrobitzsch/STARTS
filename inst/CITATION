@@ -5,12 +5,15 @@ vers <- paste("R package version", meta$Version)
 
 citEntry(entry="Manual",
          title = "{STARTS: Functions for the STARTS model}",
-         author = personList(as.person("Alexander Robitzsch"), as.person("Oliver Luedtke")),
+         author = personList(
+                     as.person("Alexander Robitzsch"), 
+                     as.person("Oliver Luedtke")
+                  ),
          year = year,
          note = vers,
-	 url = "https://CRAN.R-project.org/package=STARTS" ,
+         url = "https://CRAN.R-project.org/package=STARTS" ,
          textVersion =
-         paste0("Robitzsch, A., & Luedtke, O. (",  year,"). 
+             paste0("Robitzsch, A., & Luedtke, O. (",  year,"). 
                STARTS: Functions for the STARTS model. ",
                vers, 
                ". https://CRAN.R-project.org/package=STARTS")

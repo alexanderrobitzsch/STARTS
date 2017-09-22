@@ -1,6 +1,6 @@
 %% File Name: STARTS-package.Rd
 %% File Version: 0.04
-%% File Last Change: 2017-08-27 12:18:32
+%% File Last Change: 2017-08-27 14:04:33
 
 \name{STARTS-package}
 \alias{STARTS-package}

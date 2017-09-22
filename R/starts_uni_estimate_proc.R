@@ -1,6 +1,6 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.03
-## File Last Change: 2017-08-26 22:55:53
+## File Version: 0.04
+## File Last Change: 2017-08-27 18:21:03
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
 		est_var_trait,	est_var_ar, est_var_state, var_meas_error )
@@ -12,7 +12,7 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
 		if ( sum( is.na(data) ) > 0 ){
 			warning("Function 'starts_uni_estimate' uses listwise deletion to handle missing data.\n")	
 		}
-		data <- na.omit(data)
+		data <- stats::na.omit(data)
 		covmat <- stats::cov(data)			
 	}
 	diag(covmat) <- diag(covmat) - var_meas_error

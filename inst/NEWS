@@ -23,6 +23,18 @@ and (if necessary) a corresponding dataset.
 
 
 
+
+------------------------------------------------------------------------
+VERSIONS STARTS 0.2  |  2017-09-22  |  Last: STARTS 0.2-3
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.1  |  2017-08-27  |  Last: STARTS 0.1-51
 ------------------------------------------------------------------------
@@ -40,8 +52,6 @@ ADDED * added function 'starts_uni_estimate' for convenient estimation
 
 DATA  * included/modified datasets: data.starts01a, data.starts01b
 EXAMP * included/modified examples: starts_uni (1,2)
-
-
 
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.0  |  2017-05-12  |  Last: STARTS 0.0-9

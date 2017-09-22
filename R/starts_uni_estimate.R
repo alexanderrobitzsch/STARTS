@@ -1,6 +1,6 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.16
-## File Last Change: 2017-08-27 13:53:14
+## File Version: 0.17
+## File Last Change: 2017-08-27 15:10:34
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -47,8 +47,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	prior_model <- res$prior_model
 	
 	#--- estimate model	
-	# LAM_fct <- LAM::pmle
-	LAM_fct <- pmle
+	LAM_fct <- LAM::pmle
 	LAM_args <- list( data=data, nobs= data$n, pars=pars_inits, model = ll_model ,  prior=prior_model , 
 							pars_lower = pars_lower, pars_upper = pars_upper , 
 							method = "L-BFGS-B", verbose=FALSE ) 	

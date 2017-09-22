@@ -1,6 +1,6 @@
 ## File Name: starts_estimate_description.R
 ## File Version: 0.02
-## File Last Change: 2017-08-27 13:09:54
+## File Last Change: 2017-08-27 13:10:44
 
 starts_estimate_description <- function(estimator)
 {
