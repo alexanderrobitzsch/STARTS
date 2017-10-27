@@ -1,6 +1,5 @@
 ## File Name: starts_uni_estimate_prepare_fitting.R
 ## File Version: 0.03
-## File Last Change: 2017-08-27 13:39:18
 
 
 starts_uni_estimate_prepare_fitting <- function( pars_est, constraints, estimator,

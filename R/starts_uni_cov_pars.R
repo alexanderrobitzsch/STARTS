@@ -1,6 +1,5 @@
 ## File Name: starts_uni_cov_pars.R
 ## File Version: 0.01
-## File Last Change: 2017-08-26 22:38:42
 
 starts_uni_cov_pars <- function(W, pars, pars_est, time_index)
 {

@@ -1,6 +1,5 @@
 ## File Name: zzz.R
 ## File Version: 0.02
-## File Last Change: 2017-05-10 20:05:51
 #  zzz.R
 #
 # This function is simply copied from the mice package.

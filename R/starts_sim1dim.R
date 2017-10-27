@@ -1,6 +1,5 @@
 ## File Name: starts_sim1dim.R
 ## File Version: 0.06
-## File Last Change: 2017-08-26 20:25:12
 
 #######################################################
 # STARTS unidimensional model: simulation 

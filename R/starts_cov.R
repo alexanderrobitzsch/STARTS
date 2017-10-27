@@ -1,6 +1,5 @@
 ## File Name: starts_cov.R
 ## File Version: 1.01
-## File Last Change: 2017-08-25 11:25:00
 
 
 starts_cov <- function(W , var_trait , var_ar , var_state , a )

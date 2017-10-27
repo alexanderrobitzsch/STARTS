@@ -1,6 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
 ## File Version: 0.04
-## File Last Change: 2017-08-27 18:21:03
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
 		est_var_trait,	est_var_ar, est_var_state, var_meas_error )

@@ -1,6 +1,5 @@
 %% File Name: starts_uni.Rd
 %% File Version: 0.28
-%% File Last Change: 2017-08-27 14:41:07
 
 \name{starts_uni}
 \alias{starts_uni_cov}

@@ -1,6 +1,5 @@
 ## File Name: starts_uni_sim.R
 ## File Version: 0.07
-## File Last Change: 2017-08-26 20:21:49
 
 #######################################################
 # STARTS unidimensional model: simulation 

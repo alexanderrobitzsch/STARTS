@@ -1,6 +1,5 @@
 ## File Name: starts_estimate_model_fit.R
 ## File Version: 0.04
-## File Last Change: 2017-08-26 22:18:29
 
 starts_estimate_model_fit <- function( covmat, covmat_fitted, deviance, deviance_saturated, df_sem, nobs )
 {

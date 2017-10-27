@@ -1,6 +1,5 @@
 ## File Name: starts_uni_estimate_prepare_fitting_prior_model.R
 ## File Version: 0.04
-## File Last Change: 2017-08-27 13:57:25
 
 
 starts_uni_estimate_prepare_fitting_prior_model <- function( pars_est, 

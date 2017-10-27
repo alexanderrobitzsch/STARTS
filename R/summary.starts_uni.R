@@ -1,6 +1,5 @@
 ## File Name: summary.starts_uni.R
 ## File Version: 0.08
-## File Last Change: 2017-08-27 13:54:53
 
 #############################################################
 summary.starts_uni <- function( object , digits=3 , file=NULL ,... ){

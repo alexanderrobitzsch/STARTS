@@ -1,6 +1,5 @@
 ## File Name: starts_uni_estimate.R
 ## File Version: 0.17
-## File Last Change: 2017-08-27 15:10:34
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 

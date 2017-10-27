@@ -1,6 +1,5 @@
 %% File Name: data.starts.Rd
 %% File Version: 0.04
-%% File Last Change: 2017-08-01 14:09:48
 
 \name{data.starts}
 \alias{data.starts}

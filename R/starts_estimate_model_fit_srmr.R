@@ -1,6 +1,5 @@
 ## File Name: starts_estimate_model_fit_srmr.R
 ## File Version: 0.03
-## File Last Change: 2017-08-27 13:28:40
 
 starts_estimate_model_fit_srmr <- function(covmat, covmat_fitted)
 {

@@ -1,6 +1,5 @@
 ## File Name: starts_uni_cov.R
 ## File Version: 0.06
-## File Last Change: 2017-08-26 20:17:06
 
 starts_uni_cov <- function(W , var_trait , var_ar , var_state , a , time_index = NULL )
 {

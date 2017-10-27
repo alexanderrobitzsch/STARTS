@@ -1,6 +1,5 @@
 ## File Name: starts_deprecated.R
 ## File Version: 0.01
-## File Last Change: 2017-08-25 11:06:55
 
 starts_deprecated <- function( old, new, pkg="STARTS" )
 {
