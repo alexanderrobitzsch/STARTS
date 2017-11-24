@@ -12,6 +12,7 @@
 #*************** R Basics / Linking To *************
 #***************************************************
 
+importFrom(graphics, plot)
 importFrom(stats, cov)
 importFrom(stats, dbeta)
 importFrom(stats, na.omit)
@@ -31,7 +32,10 @@ importFrom(CDM, osink)
 importFrom(LAM, loglike_mvnorm)
 importFrom(LAM, pmle)
 importFrom(sirt, dinvgamma2)
-
+importFrom(sirt, sirt_summary_print_call)
+importFrom(sirt, sirt_summary_print_objects)
+importFrom(sirt, sirt_summary_print_package)
+importFrom(sirt, sirt_summary_print_rsession)
 
 
 #***************************************************
@@ -62,4 +66,8 @@ export(starts_sim1dim)
 ################################################
 
 
+S3method(coef, starts_uni)
+S3method(logLik, starts_uni)
+S3method(plot, starts_uni)
 S3method(summary, starts_uni)
+S3method(vcov, starts_uni)

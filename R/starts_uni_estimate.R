@@ -1,11 +1,12 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.17
+## File Version: 0.25
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
         pars_inits = NULL , prior_var_trait = c(3,.33), prior_var_ar=c(3,.33), prior_var_state=c(3,.33), 
 		prior_a=c(3,.5), est_var_trait=TRUE, est_var_ar=TRUE, est_var_state=TRUE, var_meas_error = 0,
-		constraints=TRUE, time_index=NULL, type="stationary" )
+		constraints=TRUE, time_index=NULL, type="stationary",
+		n.burnin=5000, n.iter=20000)
 {
 	CALL <- match.call()
 	time <- list( "start" = Sys.time() )
@@ -32,26 +33,49 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	#--- define likelihood function for the STARTS model
 	ll_model <- function( pars , data ){ 
 		Sigma <- starts_uni_cov_pars(W=W, pars=pars, pars_est=pars_est, time_index=time_index)
-		ll <- LAM::loglike_mvnorm( S = data$S , Sigma = Sigma , M = data$M , mu = data$M ,
-					n = data$n , lambda = 1E-10)
+		ll <- LAM::loglike_mvnorm( S=data$S, Sigma = Sigma, M=data$M, mu=data$M ,
+					n=data$n, lambda=1E-10)
 		return(ll)
 	}
 
 	#--- lower and upper bounds for parameters
-	res <- starts_uni_estimate_prepare_fitting( pars_est, constraints, estimator,
-	               prior_var_trait, prior_var_ar, prior_var_state, prior_a ,sd0)
+	res <- starts_uni_estimate_prepare_fitting( pars_est=pars_est, 
+				constraints=constraints, estimator=estimator, prior_var_trait=prior_var_trait, 
+				prior_var_ar=prior_var_ar, prior_var_state=prior_var_state, prior_a=prior_a, sd0=sd0,
+				pars_inits=pars_inits) 
 	pars_lower <- res$pars_lower
 	pars_upper <- res$pars_upper	
 	constraints <- res$constraints
 	prior_model <- res$prior_model
+	proposal_sd <- res$proposal_sd
 	
 	#--- estimate model	
-	LAM_fct <- LAM::pmle
-	LAM_args <- list( data=data, nobs= data$n, pars=pars_inits, model = ll_model ,  prior=prior_model , 
-							pars_lower = pars_lower, pars_upper = pars_upper , 
-							method = "L-BFGS-B", verbose=FALSE ) 	
-	fit_LAM <- res <- do.call( what=LAM_fct, args = LAM_args )
-
+	#- function and arguments
+	use_pmle <- use_amh <- FALSE
+	if (estimator %in% c("ML", "PML")){
+		LAM_fct <- LAM::pmle
+		use_pmle <- TRUE		
+	}
+	if (estimator %in% c("MCMC") ){
+		LAM_fct <- LAM::amh
+		use_amh <- TRUE	
+	}
+	
+	LAM_args <- list( data=data, nobs= data$n, pars=pars_inits, model = ll_model, prior=prior_model,
+							pars_lower = pars_lower, pars_upper = pars_upper  )
+	if (use_pmle){
+		LAM_args$method <- "L-BFGS-B"		
+		LAM_args$verbose <- FALSE
+	}
+	if (use_amh){
+		LAM_args$n.burnin <- n.burnin
+		LAM_args$n.iter <- n.iter
+		LAM_args$proposal_sd <- proposal_sd
+	}	
+							
+	#- call estimation function
+	fit_LAM <- res <- do.call( what=LAM_fct, args=LAM_args )
+	
 	deviance <- fit_LAM$deviance
 	coef <- res$coef
 	vcov <- res$vcov
@@ -83,7 +107,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 					model_fit=model_fit, covmat_fitted=covmat_fitted, fit_LAM=fit_LAM, data0=data0, 
 					pars_inits=pars_inits, pars_lower=pars_lower, pars_upper=pars_upper,
 					estimator=estimator, description=description, used_function=used_function,
-					constraints=constraints,
+					constraints=constraints, use_pmle=use_pmle, use_amh=use_amh,
 					time=time, CALL=CALL)
 	class(res) <- "starts_uni"
 	return(res)

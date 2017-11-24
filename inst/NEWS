@@ -23,12 +23,12 @@ and (if necessary) a corresponding dataset.
 
 
 
-
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.2  |  2017-10-27  |  Last: STARTS 0.2-4
+VERSIONS STARTS 0.3  |  2017-11-24  |  Last: STARTS 0.3-1
 ------------------------------------------------------------------------
 
 xxx   * ...
+
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
@@ -36,10 +36,25 @@ EXAMP * included/modified examples: ---
 
 
 ------------------------------------------------------------------------
+VERSIONS STARTS 0.2  |  2017-11-24  |  Last: STARTS 0.2-10
+------------------------------------------------------------------------
+
+ADDED * included option for MCMC estimation in 'starts_uni_estimate'
+ADDED * added S3 methods 'plot', 'logLik', 'coef' and 'vcov' for
+        'starts_uni_estimate'
+NOTE  * moved previous example 1 from 'starts_uni' into LAM package
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: starts_uni_estimate (1)
+
+
+
+------------------------------------------------------------------------
 VERSIONS STARTS 0.1  |  2017-08-27  |  Last: STARTS 0.1-51
 ------------------------------------------------------------------------
 
-NOTE  * included synthetic datasets used in Luedtke et al. (in press)
+NOTE  * included synthetic datasets adapted to the one used 
+        in Luedtke et al. (in press)
 FIXED * fixed a bug in the STARTS example which prevented the syntax 
         from running correctly (thanks to Judith Biesen)
 NOTE  * extended example in 'starts_cov' which now contains parts of
