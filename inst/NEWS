@@ -24,11 +24,15 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.3  |  2017-11-24  |  Last: STARTS 0.3-1
+VERSIONS STARTS 0.3  |  2017-12-04  |  Last: STARTS 0.3-5
 ------------------------------------------------------------------------
 
-xxx   * ...
-
+NOTE  * corrected information criteria in starts_uni_estimate().
+        The estimate means were ignored in the previous release.
+FIXED * fixed a bug in starts_uni_estimate() because sirt::dimproper()
+        was not imported in the 'LAM' package
+ADDED * included univariate estimation of the STARTS model with
+        missing data
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
@@ -39,10 +43,10 @@ EXAMP * included/modified examples: ---
 VERSIONS STARTS 0.2  |  2017-11-24  |  Last: STARTS 0.2-10
 ------------------------------------------------------------------------
 
-ADDED * included option for MCMC estimation in 'starts_uni_estimate'
-ADDED * added S3 methods 'plot', 'logLik', 'coef' and 'vcov' for
-        'starts_uni_estimate'
-NOTE  * moved previous example 1 from 'starts_uni' into LAM package
+ADDED * included option for MCMC estimation in starts_uni_estimate()
+ADDED * added S3 methods plot(), logLik(), coef() and vcov() for
+        starts_uni_estimate()
+NOTE  * moved previous Example 1 from starts_uni() into LAM package
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: starts_uni_estimate (1)

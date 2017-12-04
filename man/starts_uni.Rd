@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.36
+%% File Version: 0.37
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -230,6 +230,10 @@ nobs <- nrow(dat)
 #*** Model 1a: STARTS model with ML estimation 
 mod1a <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs)
 summary(mod1a)
+
+#- estimate model based on input data
+mod1a1 <- STARTS::starts_uni_estimate( data = dat[ , paste0("E",1:5) ])
+summary(mod1a1)
 
 #*** Model 1b: STARTS model with penalized ML estimation using the default priors
 mod1b <- STARTS::starts_uni_estimate( covmat=covmat, nobs=nobs, estimator="PML")

@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.25
+## File Version: 0.51
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -20,29 +20,51 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	pars_inits <- res$pars_inits
 	time_index <- res$time_index
 	covmat <- res$covmat
+	M <- res$M
 	data0 <- res$data0
 	par_names <- res$par_names
 	nobs <- res$nobs
 	pars_est <- res$pars_est
 	df_sem <- res$df_sem
 	par_names_est <- res$par_names_est
-	sd0 <- res$sd0
+	sd0 <- res$sd0	
+	some_missings <- res$some_missings
+	suff_stat <- res$suff_stat
 	
 	#--- define input data for the STARTS model
-	data <- list( "S" = covmat , "M" = rep(0,W) , "n" = nobs , "W" = W  )
+	data <- list( "S" = covmat , "M" = M , "n" = nobs , "W" = W , suff_stat=suff_stat )
+
 	#--- define likelihood function for the STARTS model
-	ll_model <- function( pars , data ){ 
-		Sigma <- starts_uni_cov_pars(W=W, pars=pars, pars_est=pars_est, time_index=time_index)
-		ll <- LAM::loglike_mvnorm( S=data$S, Sigma = Sigma, M=data$M, mu=data$M ,
-					n=data$n, lambda=1E-10)
-		return(ll)
+	ind_M <- 1:W
+	ind_S <- seq(W+1,W+4)
+	if (some_missings){
+		loglike_fct <- LAM::loglike_mvnorm_NA_pattern
+	} else {
+		loglike_fct <- LAM::loglike_mvnorm
 	}
+	ll_model <- function( pars , data ){
+		pars_M <- pars[ ind_M ]
+		pars_S <- pars[ ind_S ]
+		Sigma <- starts_uni_cov_pars(W=W, pars=pars_S, pars_est=pars_est[ind_S], 
+						time_index=time_index)
+		loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10)						
+		if ( ! some_missings ){
+			loglike_args$S <- data$S
+			loglike_args$M <- data$M
+			loglike_args$n <- data$n
+		}
+		if ( some_missings ){
+			loglike_args$suff_stat <- data$suff_stat
+		}				
+		ll <- do.call( what=loglike_fct, args=loglike_args)
+		return(ll)
+	}	
 
 	#--- lower and upper bounds for parameters
 	res <- starts_uni_estimate_prepare_fitting( pars_est=pars_est, 
 				constraints=constraints, estimator=estimator, prior_var_trait=prior_var_trait, 
 				prior_var_ar=prior_var_ar, prior_var_state=prior_var_state, prior_a=prior_a, sd0=sd0,
-				pars_inits=pars_inits) 
+				pars_inits=pars_inits, W=W) 
 	pars_lower <- res$pars_lower
 	pars_upper <- res$pars_upper	
 	constraints <- res$constraints
@@ -63,6 +85,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	
 	LAM_args <- list( data=data, nobs= data$n, pars=pars_inits, model = ll_model, prior=prior_model,
 							pars_lower = pars_lower, pars_upper = pars_upper  )
+							
 	if (use_pmle){
 		LAM_args$method <- "L-BFGS-B"		
 		LAM_args$verbose <- FALSE
@@ -72,26 +95,32 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 		LAM_args$n.iter <- n.iter
 		LAM_args$proposal_sd <- proposal_sd
 	}	
-							
-	#- call estimation function
-	fit_LAM <- res <- do.call( what=LAM_fct, args=LAM_args )
 	
+	#- call estimation function
+	fit_LAM <- res <- do.call( what=LAM_fct, args=LAM_args )	
 	deviance <- fit_LAM$deviance
 	coef <- res$coef
 	vcov <- res$vcov
 	
 	#--- saturated fit
-	ll_saturated <- LAM::loglike_mvnorm( S = data$S , Sigma = data$S , M = data$M , mu = data$M ,
+	
+	if ( ! some_missings ){		
+		loglike_args <- list( S = data$S , Sigma = data$S , M = data$M , mu = data$M ,
 						n = data$n , lambda = 1E-10)	
-	deviance_saturated <- -2*ll_saturated				
+		ll_saturated <- do.call( what=loglike_fct, args=loglike_args)											
+		deviance_saturated <- -2*ll_saturated				
+	}
 	
 	#--- fitted covariance matrix					
 	covmat_fitted <- starts_uni_cov_pars(W=W, pars=coef, pars_est=pars_est, time_index=time_index)					
 					
 	#--- model fit
-	model_fit <- starts_estimate_model_fit( covmat=covmat, covmat_fitted=covmat_fitted, deviance=deviance, 
+	model_fit <- NULL
+	if (! some_missings){
+		model_fit <- starts_estimate_model_fit( covmat=covmat, covmat_fitted=covmat_fitted, deviance=deviance, 
 						deviance_saturated=deviance_saturated, df_sem=df_sem, nobs=nobs ) 
-
+	}
+		
 	#--- description
 	res <- starts_estimate_description(estimator=estimator)
 	description <- res$description
@@ -99,16 +128,18 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	
 	#--- output management
 	deviance <- fit_LAM$deviance
-	ic <- fit_LAM$ic		
-	time$end <- Sys.time()
 	
+	#-- adapt information criteria
+	ic <- fit_LAM$ic
+	
+	time$end <- Sys.time()	
 	#--- output
 	res <- list( coef=coef, vcov=vcov, deviance=deviance, ic = ic ,
 					model_fit=model_fit, covmat_fitted=covmat_fitted, fit_LAM=fit_LAM, data0=data0, 
 					pars_inits=pars_inits, pars_lower=pars_lower, pars_upper=pars_upper,
 					estimator=estimator, description=description, used_function=used_function,
 					constraints=constraints, use_pmle=use_pmle, use_amh=use_amh,
-					time=time, CALL=CALL)
+					some_missings=some_missings, time=time, CALL=CALL)
 	class(res) <- "starts_uni"
 	return(res)
 }

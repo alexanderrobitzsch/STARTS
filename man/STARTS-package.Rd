@@ -1,5 +1,5 @@
 %% File Name: STARTS-package.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{STARTS-package}
 \alias{STARTS-package}
@@ -13,7 +13,10 @@ Functions for the STARTS model
 \description{
     Contains functions for estimating the STARTS model of
     Kenny and Zautra (1995, 2001) <DOI:10.1037/0022-006X.63.1.52>,
-    <DOI:10.1037/10409-008>.
+    <DOI:10.1037/10409-008>. Penalized maximum likelihood
+    estimation and Markov Chain Monte Carlo estimation is
+    also provided, see Luedtke, Robitzsch and Wagner (2017)
+    <DOI:10.1037/met0000155>.
 }
 
 %% \details{
@@ -53,9 +56,9 @@ longitudinal data. In L. M. Collins & A. G. Sayer (Eds.),
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
 
-Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
+Luedtke, O., Robitzsch, A., & Wagner, J. (2017). More stable estimation of the STARTS model:  
 A Bayesian approach using Markov Chain Monte Carlo techniques. 
-\emph{Psychological Methods}, \bold{xx}, xxx-xxx.
+\emph{Psychological Methods}, \bold{xx}, xxx-xxx. DOI 10.1037/met0000155
 }
 
 %\seealso{
