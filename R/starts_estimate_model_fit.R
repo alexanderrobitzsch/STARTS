@@ -1,7 +1,8 @@
 ## File Name: starts_estimate_model_fit.R
-## File Version: 0.04
+## File Version: 0.05
 
-starts_estimate_model_fit <- function( covmat, covmat_fitted, deviance, deviance_saturated, df_sem, nobs )
+starts_estimate_model_fit <- function( covmat, covmat_fitted, deviance, deviance_saturated, df_sem, 
+			nobs)
 {
 	#--- SRMR
 	srmr <- starts_estimate_model_fit_srmr( covmat=covmat, covmat_fitted=covmat_fitted ) 

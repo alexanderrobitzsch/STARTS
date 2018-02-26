@@ -1,5 +1,5 @@
 %% File Name: STARTS-package.Rd
-%% File Version: 0.05
+%% File Version: 0.07
 
 \name{STARTS-package}
 \alias{STARTS-package}
@@ -14,8 +14,8 @@ Functions for the STARTS model
     Contains functions for estimating the STARTS model of
     Kenny and Zautra (1995, 2001) <DOI:10.1037/0022-006X.63.1.52>,
     <DOI:10.1037/10409-008>. Penalized maximum likelihood
-    estimation and Markov Chain Monte Carlo estimation is
-    also provided, see Luedtke, Robitzsch and Wagner (2017)
+    estimation and Markov Chain Monte Carlo estimation are
+    also provided, see Luedtke, Robitzsch and Wagner (2017) 
     <DOI:10.1037/met0000155>.
 }
 

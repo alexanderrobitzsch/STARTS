@@ -1,5 +1,5 @@
 ## File Name: summary.starts_uni.R
-## File Version: 0.21
+## File Version: 0.24
 
 #############################################################
 summary.starts_uni <- function( object , digits=3 , file=NULL ,... )
@@ -73,14 +73,24 @@ summary.starts_uni <- function( object , digits=3 , file=NULL ,... )
 		obji$effSize <- round( obji$effSize )		
 	}			
 	sirt::sirt_summary_print_objects(obji=obji, from=2, digits=3, rownames_null=TRUE)	
-	
-	
+
+	cat("-----------------------------------------------------------------\n")
+	cat("Variance Proportions \n")	
+
+	if (object$use_pmle){ 
+		obji <- object$var_prop
+	}
+	if (object$use_amh){ 
+		obji <- object$var_prop
+		obji <- obji[, intersect(vars, colnames(obji)) ]
+		obji$effSize <- round( obji$effSize )		
+	}			
+	sirt::sirt_summary_print_objects(obji=obji, from=2, digits=3, rownames_null=TRUE)	
+			
 	if ( ! object$some_missings ){
 		cat("-----------------------------------------------------------------\n")
 		cat("Model Fit \n\n")	
-
 		digits_fit <- 3
-
 		cat( paste0("Chi square test of model fit: \nChi2(df=", object$model_fit$df_sem , 
 					")=" , round( object$model_fit$chisq , digits_fit ) , ", p=" , 
 					round( object$model_fit$p_chisq , digits_fit ) , "\n\n") )
