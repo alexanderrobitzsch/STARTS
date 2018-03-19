@@ -1,5 +1,5 @@
 ## File Name: starts_estimate_model_fit_rmsea.R
-## File Version: 0.01
+## File Version: 0.03
 
 
 starts_estimate_model_fit_rmsea <- function( deviance, deviance_saturated, df_sem, nobs )

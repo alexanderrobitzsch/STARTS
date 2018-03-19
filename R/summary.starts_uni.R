@@ -1,8 +1,8 @@
 ## File Name: summary.starts_uni.R
-## File Version: 0.24
+## File Version: 0.26
 
 #############################################################
-summary.starts_uni <- function( object , digits=3 , file=NULL ,... )
+summary.starts_uni <- function( object , digits=3 , file=NULL, print_call=TRUE, ... )
 {
     # open sink
     CDM::osink( file = file , suffix = paste0( "__SUMMARY.Rout") )
@@ -20,7 +20,9 @@ summary.starts_uni <- function( object , digits=3 , file=NULL ,... )
 	cat( "Used function =" , object$used_function , "\n\n" )
 	
 	#-- print call
-	sirt::sirt_summary_print_call(CALL=object$CALL)				
+	if (print_call){
+		sirt::sirt_summary_print_call(CALL=object$CALL)				
+	}
 	   
 	#-- print computation time
 	starts_summary_print_computation_time(object=object)

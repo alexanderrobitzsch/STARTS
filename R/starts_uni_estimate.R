@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.58
+## File Version: 0.73
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -30,6 +30,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	sd0 <- res$sd0	
 	some_missings <- res$some_missings
 	suff_stat <- res$suff_stat
+	var_meas_error <- res$var_meas_error
 	
 	#--- define input data for the STARTS model
 	data <- list( "S" = covmat , "M" = M , "n" = nobs , "W" = W , suff_stat=suff_stat )
@@ -43,11 +44,16 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 		loglike_fct <- LAM::loglike_mvnorm
 	}
 
+	add_meas_error <- NULL
+	if (some_missings){
+		add_meas_error <- var_meas_error
+	}
+	
 	ll_model <- function( pars , data ){
 		pars_M <- pars[ ind_M ]
-		pars_S <- pars[ ind_S ]
+		pars_S <- pars[ ind_S ]	
 		Sigma <- starts_uni_cov_pars(W=W, pars=pars_S, pars_est=pars_est[ind_S], 
-						time_index=time_index)
+						time_index=time_index, add_meas_error=add_meas_error)						
 		loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10)						
 		if ( ! some_missings ){
 			loglike_args$S <- data$S
@@ -116,9 +122,10 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 					
 	#--- model fit
 	model_fit <- NULL
-	if ( ! some_missings ){
+	if (! some_missings ){
 		model_fit <- starts_estimate_model_fit( covmat=covmat, covmat_fitted=covmat_fitted, deviance=deviance, 
-						deviance_saturated=deviance_saturated, df_sem=df_sem, nobs=nobs) 
+						deviance_saturated=deviance_saturated, df_sem=df_sem, nobs=nobs, 
+						some_missings=some_missings) 
 	}
 	
 	#--- variance proportions inference

@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.37
+%% File Version: 0.39
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -41,7 +41,7 @@ starts_uni_estimate(data = NULL, covmat = NULL, nobs = NULL, estimator = "ML",
     est_var_ar = TRUE, est_var_state = TRUE, var_meas_error = 0, constraints = TRUE, 
     time_index = NULL, type = "stationary", n.burnin=5000, n.iter=20000)
 
-\method{summary}{starts_uni}(object, digits = 3, file = NULL, ...)
+\method{summary}{starts_uni}(object, digits = 3, file = NULL, print_call=TRUE, ...)
 
 \method{plot}{starts_uni}(x, ...)
 
@@ -149,6 +149,8 @@ Stability parameter
 \item{object}{Object of class \code{starts_uni}}
 \item{digits}{Number of digits after decimal in \code{summary} output}
 \item{file}{Optional file name for \code{summary} output}
+\item{print_call}{Logical indicating whether call should be printed in \code{summary}
+output}
 \item{x}{Object of class \code{starts_uni}}
 \item{\dots}{Further arguments to be passed. For the \code{plot} method,
 see the \code{plot} method for the \code{\link[LAM:amh]{LAM::amh}} 

@@ -1,11 +1,16 @@
 ## File Name: starts_estimate_model_fit.R
-## File Version: 0.05
+## File Version: 0.07
 
 starts_estimate_model_fit <- function( covmat, covmat_fitted, deviance, deviance_saturated, df_sem, 
-			nobs)
+			nobs, some_missings)
 {
 	#--- SRMR
-	srmr <- starts_estimate_model_fit_srmr( covmat=covmat, covmat_fitted=covmat_fitted ) 
+	if ( ! some_missings ){
+		srmr <- starts_estimate_model_fit_srmr( covmat=covmat, covmat_fitted=covmat_fitted ) 
+	} else {
+		srmr <- NA
+	}
+
 	#--- RMSEA	
 	res <- starts_estimate_model_fit_rmsea( deviance=deviance, deviance_saturated=deviance_saturated, 
 					df_sem=df_sem, nobs=nobs ) 
