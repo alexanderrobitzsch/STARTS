@@ -1,5 +1,5 @@
 ## File Name: starts_uni_cov.R
-## File Version: 0.08
+## File Version: 0.11
 
 starts_uni_cov <- function(W , var_trait , var_ar , var_state , a , time_index = NULL ,
 	add_meas_error = NULL )

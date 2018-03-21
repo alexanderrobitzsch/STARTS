@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.23
+## File Version: 0.25
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
 		est_var_trait,	est_var_ar, est_var_state, var_meas_error )
@@ -29,14 +29,13 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
 			var_meas_error <- as.numeric( var_meas_error[1,,drop=TRUE] )
 		}		
 	}	
-	
-	diag(covmat) <- diag(covmat) - var_meas_error	
+	# diag(covmat) <- diag(covmat) - var_meas_error	
 	if (! is.null(time_index)){
 		time_index <- cumsum( c(0, diff(time_index)) ) + 1
 	}
 	#--- average standard deviation
 	if ( ! some_missings){
-		sd0 <- mean( sqrt( diag(covmat) ) )	
+		sd0 <- mean( sqrt( diag(covmat) - var_meas_error )  )	
 	} else {
 		sd0 <- mean( apply( data0 , 2 , stats::sd , na.rm=TRUE ) )
 	}

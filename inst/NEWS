@@ -22,9 +22,18 @@ and (if necessary) a corresponding dataset.
 
 
 
+------------------------------------------------------------------------
+VERSIONS STARTS 0.4  |  2018-03-21  |  Last: STARTS 0.4-1
+------------------------------------------------------------------------
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.3  |  2018-03-19  |  Last: STARTS 0.3-18
+VERSIONS STARTS 0.3  |  2018-03-21  |  Last: STARTS 0.3-24
 ------------------------------------------------------------------------
 
 NOTE  * corrected information criteria in starts_uni_estimate().
@@ -37,11 +46,11 @@ ADDED * added statistical inference for variance proportions in
         starts_uni_estimate() function
 FIXED * fixed a bug in case of missing data in data processing
 NOTE  * added argument 'print_call' in summary.start_uni_estimate()
+NOTE  * changed handling of input of measurement error variances which
+        is now included in the model implied covariance matrix
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
-
-
 
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.2  |  2017-11-24  |  Last: STARTS 0.2-10

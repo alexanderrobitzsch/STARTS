@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.73
+## File Version: 0.76
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -44,10 +44,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 		loglike_fct <- LAM::loglike_mvnorm
 	}
 
-	add_meas_error <- NULL
-	if (some_missings){
-		add_meas_error <- var_meas_error
-	}
+	add_meas_error <- var_meas_error
 	
 	ll_model <- function( pars , data ){
 		pars_M <- pars[ ind_M ]
