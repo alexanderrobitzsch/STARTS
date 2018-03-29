@@ -23,10 +23,15 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.4  |  2018-03-21  |  Last: STARTS 0.4-1
+VERSIONS STARTS 0.4  |  2018-03-29  |  Last: STARTS 0.4-4
 ------------------------------------------------------------------------
 
-xxx   * ...
+NOTE  * included 'library(sirt)' in ?starts_uni_estimate. The STARTS
+        estimation function needs the dinvgamma2() functions which has
+        to be imported from the 'sirt' package.
+NOTE  * fixed a bug when using 'time_index' as an argument in
+        starts_uni_estimate()
+
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---

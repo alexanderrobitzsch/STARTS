@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.76
+## File Version: 0.84
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -50,7 +50,8 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 		pars_M <- pars[ ind_M ]
 		pars_S <- pars[ ind_S ]	
 		Sigma <- starts_uni_cov_pars(W=W, pars=pars_S, pars_est=pars_est[ind_S], 
-						time_index=time_index, add_meas_error=add_meas_error)						
+						time_index=time_index, add_meas_error=add_meas_error)	
+						
 		loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10)						
 		if ( ! some_missings ){
 			loglike_args$S <- data$S
@@ -116,7 +117,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 	
 	#--- fitted covariance matrix					
 	covmat_fitted <- starts_uni_cov_pars(W=W, pars=coef, pars_est=pars_est, time_index=time_index)
-					
+	
 	#--- model fit
 	model_fit <- NULL
 	if (! some_missings ){

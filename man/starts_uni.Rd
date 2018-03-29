@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.44
+%% File Version: 0.47
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -28,9 +28,6 @@ from the univariate STARTS model (Kenny & Zautra, 1995, 2001). The STARTS model 
 be estimated with maximum likelihood, penalized maximum likelihood (i.e., 
 maximum posterior estimation) or Markov Chain Monte Carlo. 
 See Luedtke et al. (xxxx) for comparisons among estimation methods.
-
-Missing data cannot be handled in the recent package version. Full information
-maximum likelihood will be included in future package versions. 
 }
 
 \usage{
@@ -67,7 +64,7 @@ starts_sim1dim(N, W, var_trait, var_ar, var_state, a )
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-Data frame
+Data frame. Missing data must be coded as \code{NA}.
 }
   \item{covmat}{
 Covariance matrix (not necessary if \code{data} is provided)
@@ -197,7 +194,7 @@ A Bayesian approach using Markov Chain Monte Carlo techniques.
 \emph{Psychological Methods}, \bold{xx}, xxx-xxx.
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck 
-Depression Inventory II: A latent traitstate-occasion model. 
+Depression Inventory II: A latent trait-state-occasion model. 
 \emph{Journal of Psychoeducational Assessment}, 
 \bold{34}, 39-53.
 }
@@ -218,6 +215,8 @@ Alexander Robitzsch
 
 
 \examples{    
+library(sirt)
+
 #############################################################################
 # EXAMPLE 1: STARTS model specification using starts_uni_estimate  
 #############################################################################  

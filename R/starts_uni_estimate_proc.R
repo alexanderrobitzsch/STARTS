@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.25
+## File Version: 0.31
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
 		est_var_trait,	est_var_ar, est_var_state, var_meas_error )
@@ -8,6 +8,12 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
 	data0 <- data
 	some_missings <- FALSE
 	suff_stat <- NULL
+	
+	#-- clean time_index
+	if ( ! is.null(time_index) ){
+		time_index <- time_index - time_index[1] + 1
+	}	
+	
 	# handle data input
 	if ( ! is.null(data) ){		
 		nobs <- nrow(data)
@@ -23,11 +29,14 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
 	} else {
 		M <- rep(0, ncol(covmat) )
 		W <- ncol(covmat)
-	}
-	if ( ! is.null(var_meas_error) ){
+	}	
+	if ( var_meas_error == 0 ){
 		if ( is.matrix(var_meas_error) | is.data.frame(var_meas_error) ){
 			var_meas_error <- as.numeric( var_meas_error[1,,drop=TRUE] )
-		}		
+		}
+		if ( length(var_meas_error)	== 1 ){
+			var_meas_error <- rep( var_meas_error, W)
+		}
 	}	
 	# diag(covmat) <- diag(covmat) - var_meas_error	
 	if (! is.null(time_index)){
