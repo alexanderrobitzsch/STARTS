@@ -1,12 +1,12 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.84
+## File Version: 0.871
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
         pars_inits = NULL , prior_var_trait = c(3,.33), prior_var_ar=c(3,.33), prior_var_state=c(3,.33), 
 		prior_a=c(3,.5), est_var_trait=TRUE, est_var_ar=TRUE, est_var_state=TRUE, var_meas_error = 0,
 		constraints=TRUE, time_index=NULL, type="stationary",
-		n.burnin=5000, n.iter=20000)
+		n.burnin=5000, n.iter=20000, verbose=FALSE, optim_fct = "optim", use_rcpp=TRUE )
 {
 	CALL <- match.call()
 	time <- list( "start" = Sys.time() )
@@ -52,7 +52,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 		Sigma <- starts_uni_cov_pars(W=W, pars=pars_S, pars_est=pars_est[ind_S], 
 						time_index=time_index, add_meas_error=add_meas_error)	
 						
-		loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10)						
+		loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10, use_rcpp=use_rcpp)						
 		if ( ! some_missings ){
 			loglike_args$S <- data$S
 			loglike_args$M <- data$M
@@ -93,7 +93,8 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 							
 	if (use_pmle){
 		LAM_args$method <- "L-BFGS-B"		
-		LAM_args$verbose <- FALSE
+		LAM_args$verbose <- verbose
+		LAM_args$optim_fct <- optim_fct
 	}
 	if (use_amh){
 		LAM_args$n.burnin <- n.burnin

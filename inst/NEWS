@@ -23,7 +23,7 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.4  |  2018-03-29  |  Last: STARTS 0.4-4
+VERSIONS STARTS 0.4  |  2018-04-05  |  Last: STARTS 0.4-6
 ------------------------------------------------------------------------
 
 NOTE  * included 'library(sirt)' in ?starts_uni_estimate. The STARTS
@@ -31,6 +31,14 @@ NOTE  * included 'library(sirt)' in ?starts_uni_estimate. The STARTS
         to be imported from the 'sirt' package.
 NOTE  * fixed a bug when using 'time_index' as an argument in
         starts_uni_estimate()
+NOTE  * recent 'STARTS' version depends on LAM (>= 0.3-27)
+NOTE  * included argument 'optim_fct' in starts_uni_estimate()
+        which allows users to choose among optimization methods
+        stats::optim() and stats::nlminb()
+NOTE  * included argument 'use_rcpp' in starts_uni_estimate() which
+        indicates whether Rcpp code should be use in optimization.
+        In some models with many missing data patterns, considerable
+        gains in computation time can be obtained.
 
 
 DATA  * included/modified datasets: ---

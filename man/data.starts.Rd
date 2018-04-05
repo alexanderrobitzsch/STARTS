@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.04
+%% File Version: 0.05
 
 \name{data.starts}
 \alias{data.starts}
@@ -80,7 +80,7 @@ contains cases with missing data.
 \references{
 Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
 A Bayesian approach using Markov Chain Monte Carlo techniques. 
-\emph{Psychological Methods}, \bold{xx}, xxx-xxx.
+\emph{Psychological Methods, xx}, xxx-xxx.
 }
 
 

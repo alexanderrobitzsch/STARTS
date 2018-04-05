@@ -1,5 +1,5 @@
 ## File Name: summary.starts_uni.R
-## File Version: 0.26
+## File Version: 0.29
 
 #############################################################
 summary.starts_uni <- function( object , digits=3 , file=NULL, print_call=TRUE, ... )
@@ -28,7 +28,8 @@ summary.starts_uni <- function( object , digits=3 , file=NULL, print_call=TRUE, 
 	starts_summary_print_computation_time(object=object)
 	
 	if (object$use_pmle){
-		cat( "Convergence Code (optim) =" , object$fit_LAM$results_optim$convergence , "\n" )
+		cat( "Optimization function =" , object$fit_LAM$optim_fct , "\n" )
+		cat( "Convergence code =" , object$fit_LAM$results_optim$convergence , "\n" )
 		cat( "CONVERGED =" , object$fit_LAM$converged , "\n" )
 	}
 	
@@ -89,16 +90,8 @@ summary.starts_uni <- function( object , digits=3 , file=NULL, print_call=TRUE, 
 	}			
 	sirt::sirt_summary_print_objects(obji=obji, from=2, digits=3, rownames_null=TRUE)	
 			
-	if ( ! object$some_missings ){
-		cat("-----------------------------------------------------------------\n")
-		cat("Model Fit \n\n")	
-		digits_fit <- 3
-		cat( paste0("Chi square test of model fit: \nChi2(df=", object$model_fit$df_sem , 
-					")=" , round( object$model_fit$chisq , digits_fit ) , ", p=" , 
-					round( object$model_fit$p_chisq , digits_fit ) , "\n\n") )
-		cat( "SRMR =" , round( object$model_fit$SRMR , digits_fit ) , "\n" )  
-		cat( "RMSEA =" , round( object$model_fit$RMSEA , digits_fit ) , "\n" )  
-	}
+	#--- model fit
+	summary_starts_uni_print_model_fit(object=object)	
 
 	# close sink
     CDM::csink( file = file )		
