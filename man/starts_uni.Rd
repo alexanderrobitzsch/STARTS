@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.52
+%% File Version: 0.53
 
 \name{starts_uni}
 \alias{starts_uni_cov}
