@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.53
+%% File Version: 0.54
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -85,7 +85,7 @@ Optional vector of initial parameters
 }
   \item{prior_var_trait}{
 Vector of length two specifying the inverse gamma prior for trait variance. The first entry
-is teh prior sample size, the second entry the guess of the proportion
+is the prior sample size, the second entry the guess of the proportion
 of the variance that is attributed to the trait variance. See Luedtke et al. (xxxx)
 for further details.  
 }
