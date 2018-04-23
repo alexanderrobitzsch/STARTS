@@ -23,7 +23,7 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.4  |  2018-04-23  |  Last: STARTS 0.4-15
+VERSIONS STARTS 0.4  |  2018-04-23  |  Last: STARTS 0.4-16
 ------------------------------------------------------------------------
 
 NOTE  * included 'library(sirt)' in ?starts_uni_estimate. The STARTS
