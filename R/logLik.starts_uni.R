@@ -4,9 +4,9 @@
 
 logLik.starts_uni <- function (object, ...)
 {
-	out <- - object$ic$deviance / 2 
-	attr(out, "df") <- object$ic$np
-	attr(out, "nobs") <- object$ic$n
-	class(out) <- "logLik"
-	return(out)
+    out <- - object$ic$deviance / 2 
+    attr(out, "df") <- object$ic$np
+    attr(out, "nobs") <- object$ic$n
+    class(out) <- "logLik"
+    return(out)
 }

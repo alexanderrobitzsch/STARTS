@@ -3,7 +3,7 @@
 
 starts_vector_with_names <- function( vec , vec_names )
 {
-	names(vec) <- vec_names
-	return(vec)
+    names(vec) <- vec_names
+    return(vec)
 }
 

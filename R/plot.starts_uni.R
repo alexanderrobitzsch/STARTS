@@ -3,7 +3,7 @@
 
 plot.starts_uni <- function(x, ...)
 {
-	if (x$use_amh){		
-		plot(x=x$fit_LAM, ...)
-	}
+    if (x$use_amh){        
+        plot(x=x$fit_LAM, ...)
+    }
 }

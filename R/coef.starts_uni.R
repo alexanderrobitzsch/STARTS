@@ -3,5 +3,5 @@
 
 coef.starts_uni <- function( object , ...)
 {
-	return(object$coef)
+    return(object$coef)
 }

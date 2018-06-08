@@ -4,10 +4,10 @@
 #######################################################
 # STARTS unidimensional model: simulation 
 starts_sim1dim <- function( N , W , var_trait , 
-	   var_ar , var_state , a )
+       var_ar , var_state , a )
 {
-	starts_deprecated( old="starts_sim1dim", new="starts_uni_sim" )	
-	res <- starts_uni_sim( N=N , W=W , var_trait=var_trait , var_ar=var_ar , 
-				var_state=var_state , a=a )
-	return(res)
+    starts_deprecated( old="starts_sim1dim", new="starts_uni_sim" )    
+    res <- starts_uni_sim( N=N , W=W , var_trait=var_trait , var_ar=var_ar , 
+                var_state=var_state , a=a )
+    return(res)
 }

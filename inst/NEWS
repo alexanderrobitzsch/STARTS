@@ -22,8 +22,24 @@ and (if necessary) a corresponding dataset.
 
 
 
+
+
+
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.4  |  2018-04-24  |  Last: STARTS 0.4-19
+VERSIONS STARTS 0.5  |  2018-06-08  |  Last: STARTS 0.5-1
+------------------------------------------------------------------------
+
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+
+------------------------------------------------------------------------
+VERSIONS STARTS 0.4  |  2018-06-08  |  Last: STARTS 0.4-24
 ------------------------------------------------------------------------
 
 NOTE  * included 'library(sirt)' in ?starts_uni_estimate. The STARTS
@@ -40,10 +56,8 @@ NOTE  * included argument 'use_rcpp' in starts_uni_estimate() which
         In some models with many missing data patterns, considerable
         gains in computation time can be obtained.
 
-
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
-
 
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.3  |  2018-03-21  |  Last: STARTS 0.3-24

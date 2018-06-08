@@ -3,5 +3,5 @@
 
 vcov.starts_uni <- function( object , ...)
 {
-	return(object$vcov)
+    return(object$vcov)
 }

@@ -1,10 +1,11 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.05
+%% File Version: 0.09
 
 \name{data.starts}
 \alias{data.starts}
 \alias{data.starts01a}
 \alias{data.starts01b}
+\alias{data.starts02}
 
 \docType{data}
 
@@ -20,16 +21,17 @@ Some datasets for illustration used in the examples of the
 \usage{
 data(data.starts01a)
 data(data.starts01b)
+data(data.starts02)
 }
 
 
 
 \format{
-\itemize{	
+\itemize{    
 \item  \code{data.starts01a}.
 A resimulated dataset containing three factors from the Big5 scale measured at
-five time points used in Luedtke et al. (xxxx). The dataset only contains observations
-without missing data. 
+five time points used in Luedtke, Robitzsch and Wagner (xxxx). 
+The dataset only contains observations without missing data. 
   
 \code{'data.frame':   890 obs. of  16 variables:} \cr
 \code{ $ id: int  100006 100008 100010 100014 100032 100033 100035 100038 100049 100050 ...} \cr
@@ -73,6 +75,23 @@ contains cases with missing data.
 \code{ $ O5  : num  0.646 NA -1.066 NA 0.281 ...} \cr
 
 
+\item \code{data.starts02} contrains means and covariance matrices of the study of Wu (2016)
+for the older and the younger cohort (Table 2). Variables \code{a} indicate item parcels
+ of negative attitude factor at six occasions. Variable \code{b} denotes the
+ performance difficulty factor and variable \code{c} the somatic factor.
+
+ \code{List of 2} \cr
+\code{ $ older_cohort  :List of 3} \cr
+\code{  ..$ nobs  : num 630} \cr
+\code{  ..$ mean  : Named num [1:18] 3.53 3.46 3.12 2.71 2.8 2.67 2.62 2.69 2.46 2.37 ...} \cr
+\code{  .. ..- attr(*, "names")= chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
+\code{  ..$ covmat:'data.frame':      18 obs. of  18 variables:} \cr
+\code{ $ younger_cohort:List of 3} \cr
+\code{  ..$ nobs  : num 660} \cr
+\code{  ..$ mean  : Named num [1:18] 4.62 4.52 4.46 3.58 3.96 3.21 2.94 3.16 3.03 2.74 ...} \cr
+\code{  .. ..- attr(*, "names")= chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
+\code{  ..$ covmat:'data.frame':      18 obs. of  18 variables:} \cr
+
  }
 }
 
@@ -81,6 +100,10 @@ contains cases with missing data.
 Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
 A Bayesian approach using Markov Chain Monte Carlo techniques. 
 \emph{Psychological Methods, xx}, xxx-xxx.
+
+Wu, P.-C. (2016). Longitudinal stability of the Beck 
+Depression Inventory II: A latent trait-state-occasion model. 
+\emph{Journal of Psychoeducational Assessment, 34}, 39-53.
 }
 
 

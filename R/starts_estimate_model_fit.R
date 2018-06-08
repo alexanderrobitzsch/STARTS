@@ -2,23 +2,23 @@
 ## File Version: 0.07
 
 starts_estimate_model_fit <- function( covmat, covmat_fitted, deviance, deviance_saturated, df_sem, 
-			nobs, some_missings)
+            nobs, some_missings)
 {
-	#--- SRMR
-	if ( ! some_missings ){
-		srmr <- starts_estimate_model_fit_srmr( covmat=covmat, covmat_fitted=covmat_fitted ) 
-	} else {
-		srmr <- NA
-	}
+    #--- SRMR
+    if ( ! some_missings ){
+        srmr <- starts_estimate_model_fit_srmr( covmat=covmat, covmat_fitted=covmat_fitted ) 
+    } else {
+        srmr <- NA
+    }
 
-	#--- RMSEA	
-	res <- starts_estimate_model_fit_rmsea( deviance=deviance, deviance_saturated=deviance_saturated, 
-					df_sem=df_sem, nobs=nobs ) 
-	chisq <- res$chisq
-	p_chisq <- res$p_chisq
-	df_sem <- res$df_sem
-	rmsea <- res$rmsea
-	#--- output
-	res <- list( SRMR = srmr , chisq = chisq , df_sem = df_sem, p_chisq=p_chisq, RMSEA=rmsea  )
-	return(res)
+    #--- RMSEA    
+    res <- starts_estimate_model_fit_rmsea( deviance=deviance, deviance_saturated=deviance_saturated, 
+                    df_sem=df_sem, nobs=nobs ) 
+    chisq <- res$chisq
+    p_chisq <- res$p_chisq
+    df_sem <- res$df_sem
+    rmsea <- res$rmsea
+    #--- output
+    res <- list( SRMR = srmr , chisq = chisq , df_sem = df_sem, p_chisq=p_chisq, RMSEA=rmsea  )
+    return(res)
 }
