@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.871
+## File Version: 0.872
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 

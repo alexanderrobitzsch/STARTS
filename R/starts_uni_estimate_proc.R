@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.31
+## File Version: 0.32
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
         est_var_trait,    est_var_ar, est_var_state, var_meas_error )
@@ -30,7 +30,7 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
         M <- rep(0, ncol(covmat) )
         W <- ncol(covmat)
     }    
-    if ( var_meas_error == 0 ){
+    if ( sum(var_meas_error) == 0 ){
         if ( is.matrix(var_meas_error) | is.data.frame(var_meas_error) ){
             var_meas_error <- as.numeric( var_meas_error[1,,drop=TRUE] )
         }

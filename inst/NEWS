@@ -26,11 +26,13 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.5  |  2018-06-08  |  Last: STARTS 0.5-1
+VERSIONS STARTS 0.5  |  2018-06-15  |  Last: STARTS 0.5-2
 ------------------------------------------------------------------------
 
 
-xxx   * ...
+NOTE  * fixed a warning message if a vector of measurement errors was
+        used in argument 'var_meas_error' in starts_uni_estimate()
+        (thanks to Malte Jansen)
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
