@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.872
+## File Version: 0.876
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -30,7 +30,8 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     sd0 <- res$sd0    
     some_missings <- res$some_missings
     suff_stat <- res$suff_stat
-    var_meas_error <- res$var_meas_error
+    var_meas_error <- res$var_meas_error    
+    time_index_lags <- res$time_index_lags
     
     #--- define input data for the STARTS model
     data <- list( "S" = covmat , "M" = M , "n" = nobs , "W" = W , suff_stat=suff_stat )

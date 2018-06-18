@@ -1,11 +1,11 @@
 ## File Name: starts_uni_estimate_prepare_fitting_prior_variance.R
-## File Version: 0.04
+## File Version: 0.05
 
 
 starts_uni_estimate_prepare_fitting_prior_variance <- function( prior_var, sd0)
 {
     vec <- round( c(NA, prior_var[1], prior_var[2] * sd0 ) , 4 )
     vec <- as.list(vec)
-    res <- list( "dinvgamma2" , vec )
+    res <- list( "digamma2" , vec )
     return(res)
 }

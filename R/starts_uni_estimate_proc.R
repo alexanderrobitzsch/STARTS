@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.32
+## File Version: 0.35
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nobs, 
         est_var_trait,    est_var_ar, est_var_state, var_meas_error )
@@ -69,10 +69,15 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits , nob
     estimated_np <- est_var_trait + est_var_ar + est_var_state + 1
     df_sem <- covmat_np - estimated_np
     
+    if ( is.null(time_index) ){
+        time_index <- 1:W
+    }
+    time_index_lags <- sort(unique( as.vector( abs( outer( time_index, time_index, "-" ) ) ) ))
+
     #----- output
     res <- list(W=W, pars_inits=pars_inits, time_index=time_index, covmat=covmat, M=M, data0=data0,
                 par_names=par_names, nobs = nobs, sd0 = sd0, pars_est=pars_est, df_sem=df_sem,
                 par_names_est=par_names_est, some_missings=some_missings, suff_stat=suff_stat,
-                var_meas_error=var_meas_error)
+                var_meas_error=var_meas_error, time_index_lags=time_index_lags)
     return(res)
 }

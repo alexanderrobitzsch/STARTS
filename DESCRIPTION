@@ -1,8 +1,8 @@
 Package: STARTS
 Type: Package
 Title: Functions for the STARTS Model
-Version: 0.5-2
-Date: 2018-06-15 16:31:52
+Version: 0.5-15
+Date: 2018-06-18 11:40:10
 Author: Alexander Robitzsch [aut,cre], Oliver Luedtke [aut]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
@@ -16,8 +16,10 @@ Depends:
     R (>= 3.1)
 Imports:
     CDM (>= 6.0), graphics, LAM (>= 0.3-27), sirt (>= 2.3), 
-    stats, utils
+    Rcpp, stats, utils
 Suggests:
     lavaan
+LinkingTo: 
+    Rcpp, RcppArmadillo
 URL: https://github.com/alexanderrobitzsch/STARTS
 License: GPL (>= 2)

@@ -1,6 +1,6 @@
 
 
-# useDynLib(STARTS)
+useDynLib(STARTS)
 
 
 
@@ -49,6 +49,7 @@ importFrom(sirt, sirt_summary_print_rsession)
 #***************************************************
 
 # importFrom(coda, mcmc)
+importFrom(Rcpp, evalCpp)
 
 
 
@@ -57,6 +58,7 @@ importFrom(sirt, sirt_summary_print_rsession)
 ################## EXPORTS #########################
 ####################################################
 
+export(digamma2)
 export(starts_cov)
 export(starts_uni_cov)
 export(starts_uni_estimate)
