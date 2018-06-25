@@ -1,5 +1,5 @@
 ## File Name: starts_uni_cov_pars.R
-## File Version: 0.08
+## File Version: 0.11
 
 starts_uni_cov_pars <- function(W, pars, pars_est, time_index, add_meas_error=NULL)
 {

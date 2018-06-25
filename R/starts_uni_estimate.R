@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.876
+## File Version: 0.884
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML", 
@@ -11,7 +11,7 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     CALL <- match.call()
     time <- list( "start" = Sys.time() )
 
-    #--- data input processing
+    #--- data input processing    
     res <- starts_uni_estimate_proc( data=data, time_index=time_index, covmat=covmat, 
                 pars_inits=pars_inits, nobs=nobs, est_var_trait=est_var_trait, 
                 est_var_ar=est_var_ar, est_var_state=est_var_state, 
@@ -35,12 +35,14 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     
     #--- define input data for the STARTS model
     data <- list( "S" = covmat , "M" = M , "n" = nobs , "W" = W , suff_stat=suff_stat )
-
+    
     #--- define likelihood function for the STARTS model
     ind_M <- 1:W
     ind_S <- seq(W+1,W+4)
+
     if (some_missings){
-        loglike_fct <- LAM::loglike_mvnorm_NA_pattern
+        # loglike_fct <- LAM::loglike_mvnorm_NA_pattern
+        loglike_fct <- loglike_mvnorm_NA_pattern
     } else {
         loglike_fct <- LAM::loglike_mvnorm
     }
@@ -52,7 +54,6 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
         pars_S <- pars[ ind_S ]    
         Sigma <- starts_uni_cov_pars(W=W, pars=pars_S, pars_est=pars_est[ind_S], 
                         time_index=time_index, add_meas_error=add_meas_error)    
-                        
         loglike_args <- list( Sigma = Sigma, mu=pars_M, lambda=1E-10, use_rcpp=use_rcpp)                        
         if ( ! some_missings ){
             loglike_args$S <- data$S
