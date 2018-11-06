@@ -1,5 +1,5 @@
 %% File Name: STARTS-utilities.Rd
-%% File Version: 0.02
+%% File Version: 0.03
 
 \name{STARTS-utilities}
 \alias{digamma2}
@@ -37,14 +37,14 @@ Prior variance
 
 %%   'object' 'digits' 'file' '...'
 
-%%\details{  
-%% xxx    
+%%\details{
+%% xxx
 %% }
 
 
 
 
-%\examples{    
+%\examples{
 %library(sirt)
 %}
 

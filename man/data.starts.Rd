@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.09
+%% File Version: 0.11
 
 \name{data.starts}
 \alias{data.starts}
@@ -15,7 +15,7 @@ Datasets in the \pkg{STARTS} Package
 
 \description{
 Some datasets for illustration used in the examples of the
-\pkg{STARTS} package. 
+\pkg{STARTS} package.
 }
 
 \usage{
@@ -27,12 +27,12 @@ data(data.starts02)
 
 
 \format{
-\itemize{    
+\itemize{
 \item  \code{data.starts01a}.
 A resimulated dataset containing three factors from the Big5 scale measured at
-five time points used in Luedtke, Robitzsch and Wagner (xxxx). 
-The dataset only contains observations without missing data. 
-  
+five time points used in Luedtke, Robitzsch and Wagner (xxxx).
+The dataset only contains observations without missing data.
+
 \code{'data.frame':   890 obs. of  16 variables:} \cr
 \code{ $ id: int  100006 100008 100010 100014 100032 100033 100035 100038 100049 100050 ...} \cr
 \code{ $ E1: num  -0.28 1.48 0.12 -1.05 -0.28 ...} \cr
@@ -51,10 +51,10 @@ The dataset only contains observations without missing data.
 \code{ $ O4: num  -0.29 -0.678 -0.29 0.075 -0.107 ...} \cr
 \code{ $ O5: num  1.217 -1.637 -0.29 -0.678 0.646 ...} \cr
 
-  
+
 \item  \code{data.starts01b}. Like \code{data.starts01a}, but the dataset also
-contains cases with missing data. 
-  
+contains cases with missing data.
+
 \code{'data.frame':   3215 obs. of  17 variables:} \cr
 \code{ $ id  : int  100001 100002 100003 100004 100005 100006 100007 100008 100009 100010 ...} \cr
 \code{ $ patt: Factor w/ 26 levels "P00010","P00011",..: 24 19 20 25 22 26 18 26 19 26 ...} \cr
@@ -84,12 +84,12 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 \code{ $ older_cohort  :List of 3} \cr
 \code{  ..$ nobs  : num 630} \cr
 \code{  ..$ mean  : Named num [1:18] 3.53 3.46 3.12 2.71 2.8 2.67 2.62 2.69 2.46 2.37 ...} \cr
-\code{  .. ..- attr(*, "names")= chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
+\code{  .. ..- attr(*, "names")=chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
 \code{  ..$ covmat:'data.frame':      18 obs. of  18 variables:} \cr
 \code{ $ younger_cohort:List of 3} \cr
 \code{  ..$ nobs  : num 660} \cr
 \code{  ..$ mean  : Named num [1:18] 4.62 4.52 4.46 3.58 3.96 3.21 2.94 3.16 3.03 2.74 ...} \cr
-\code{  .. ..- attr(*, "names")= chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
+\code{  .. ..- attr(*, "names")=chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
 \code{  ..$ covmat:'data.frame':      18 obs. of  18 variables:} \cr
 
  }
@@ -97,12 +97,12 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 
 
 \references{
-Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:  
-A Bayesian approach using Markov Chain Monte Carlo techniques. 
+Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:
+A Bayesian approach using Markov Chain Monte Carlo techniques.
 \emph{Psychological Methods, xx}, xxx-xxx.
 
-Wu, P.-C. (2016). Longitudinal stability of the Beck 
-Depression Inventory II: A latent trait-state-occasion model. 
+Wu, P.-C. (2016). Longitudinal stability of the Beck
+Depression Inventory II: A latent trait-state-occasion model.
 \emph{Journal of Psychoeducational Assessment, 34}, 39-53.
 }
 

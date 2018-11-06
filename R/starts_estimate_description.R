@@ -1,5 +1,5 @@
 ## File Name: starts_estimate_description.R
-## File Version: 0.03
+## File Version: 0.04
 
 starts_estimate_description <- function(estimator)
 {
@@ -12,14 +12,14 @@ starts_estimate_description <- function(estimator)
     }
     if (estimator=="MCMC"){
         description <- paste0( "Markov Chain Monte Carlo Estimation" )
-    }    
+    }
     if (estimator %in% c("ML","PML")){
         used_function <- "LAM::pmle"
     }
     if (estimator %in% c("MCMC")){
         used_function <- "LAM::amh"
     }
-    
+
     #--- output
     res <- list(description=description, used_function=used_function)
     return(res)

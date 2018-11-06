@@ -1,7 +1,7 @@
 ## File Name: vcov.starts_uni.R
-## File Version: 0.01
+## File Version: 0.02
 
-vcov.starts_uni <- function( object , ...)
+vcov.starts_uni <- function( object, ...)
 {
     return(object$vcov)
 }
