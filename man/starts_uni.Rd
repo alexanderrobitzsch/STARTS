@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.59
+%% File Version: 0.62
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -27,7 +27,7 @@ Functions for computing the covariance matrix and simulating data
 from the univariate STARTS model (Kenny & Zautra, 1995, 2001). The STARTS model can
 be estimated with maximum likelihood, penalized maximum likelihood (i.e.,
 maximum posterior estimation) or Markov Chain Monte Carlo.
-See Luedtke, Robitzsch and Wagner (xxxx) for comparisons among estimation methods.
+See Luedtke, Robitzsch and Wagner (2018) for comparisons among estimation methods.
 }
 
 \usage{
@@ -199,9 +199,9 @@ longitudinal data. In L. M. Collins & A. G. Sayer (Eds.),
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
 
-Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:
+Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
-\emph{Psychological Methods, xx}, xxx-xxx.
+\emph{Psychological Methods, 23}(3), 570-593.
 }
 
 \author{

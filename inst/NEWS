@@ -26,9 +26,21 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 0.5  |  2018-11-06  |  Last: STARTS 0.5-27
+VERSIONS STARTS 0.6  |  2018-11-12  |  Last: STARTS 0.6-1
 ------------------------------------------------------------------------
 
+
+xxx   * ...
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+
+
+
+------------------------------------------------------------------------
+VERSIONS STARTS 0.5  |  2018-11-12  |  Last: STARTS 0.5-28
+------------------------------------------------------------------------
 
 NOTE  * fixed a warning message if a vector of measurement errors was
         used in argument 'var_meas_error' in starts_uni_estimate()
@@ -36,12 +48,8 @@ NOTE  * fixed a warning message if a vector of measurement errors was
 NOTE  * removed redundant calculations when time_index is submitted
 NOTE  * exported computation of model implied covariance to Rcpp
 
-
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
-
-
-
 
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.4  |  2018-06-08  |  Last: STARTS 0.4-24
