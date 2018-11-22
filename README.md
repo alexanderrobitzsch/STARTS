@@ -18,9 +18,9 @@ The CRAN version can be installed from within R using:
 utils::install.packages("STARTS")
 ```
 
-#### GitHub version `STARTS` 0.6-1 (2018-11-12)
+#### GitHub version `STARTS` 1.0-3 (2018-11-22)
 
-[![](https://img.shields.io/badge/github%20version-0.6--1-orange.svg)](https://github.com/alexanderrobitzsch/STARTS)&#160;&#160;
+[![](https://img.shields.io/badge/github%20version-1.0--3-orange.svg)](https://github.com/alexanderrobitzsch/STARTS)&#160;&#160;
 
 The version hosted [here](https://github.com/alexanderrobitzsch/STARTS) is the development version of `STARTS`. 
 The GitHub version can be installed using `devtools` as:
