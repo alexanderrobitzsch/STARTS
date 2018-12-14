@@ -23,20 +23,36 @@ and (if necessary) a corresponding dataset.
 
 
 
-
-
 ------------------------------------------------------------------------
-VERSIONS STARTS 1.0  |  2018-11-22  |  Last: STARTS 1.0-3
+VERSIONS STARTS 1.2  |  2018-12-14  |  Last: STARTS 1.2-1
 ------------------------------------------------------------------------
-
 
 xxx   * ...
+
 
 DATA  * included/modified datasets: ---
 EXAMP * included/modified examples: ---
 
 
+------------------------------------------------------------------------
+VERSIONS STARTS 1.1  |  2018-12-13  |  Last: STARTS 1.1-6
+------------------------------------------------------------------------
 
+FIXED * fixed a recently introduced bug in STARTS 1.0 in computing
+        standard errors for proportions of variance in starts_uni_estimate()
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
+
+------------------------------------------------------------------------
+VERSIONS STARTS 1.0  |  2018-12-12  |  Last: STARTS 1.0-6
+------------------------------------------------------------------------
+
+NOTE  * internal function changes in SE computation of variance 
+        proportions in starts_uni_estimate()
+
+DATA  * included/modified datasets: ---
+EXAMP * included/modified examples: ---
 
 ------------------------------------------------------------------------
 VERSIONS STARTS 0.5  |  2018-11-12  |  Last: STARTS 0.5-28

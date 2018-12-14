@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.11
+%% File Version: 0.13
 
 \name{data.starts}
 \alias{data.starts}
@@ -30,7 +30,7 @@ data(data.starts02)
 \itemize{
 \item  \code{data.starts01a}.
 A resimulated dataset containing three factors from the Big5 scale measured at
-five time points used in Luedtke, Robitzsch and Wagner (xxxx).
+five time points used in Luedtke, Robitzsch and Wagner (2018).
 The dataset only contains observations without missing data.
 
 \code{'data.frame':   890 obs. of  16 variables:} \cr
@@ -97,9 +97,9 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 
 
 \references{
-Luedtke, O., Robitzsch, A., & Wagner, J. (xxxx). More stable estimation of the STARTS model:
+Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
-\emph{Psychological Methods, xx}, xxx-xxx.
+\emph{Psychological Methods, 23}(3), 570-593.
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.

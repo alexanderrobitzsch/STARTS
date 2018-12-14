@@ -28,7 +28,7 @@ importFrom(utils, packageDescription)
 #***************************************************
 
 importFrom(CDM, csink)
-importFrom(CDM, numerical_Hessian_partial)
+importFrom(CDM, numerical_gradient)
 importFrom(CDM, osink)
 importFrom(LAM, amh)
 importFrom(LAM, loglike_mvnorm)

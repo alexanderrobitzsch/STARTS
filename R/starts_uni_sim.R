@@ -1,5 +1,5 @@
 ## File Name: starts_uni_sim.R
-## File Version: 0.12
+## File Version: 0.13
 
 #######################################################
 # STARTS unidimensional model: simulation
@@ -7,7 +7,7 @@ starts_uni_sim <- function( N, W, var_trait, var_ar, var_state, a, time_index=NU
 {
     # var_state <- var_disturbance / ( 1 - a^2 )
     #  Var(S)=a^2 Var(S) + Var(U)
-    # => Var(U)=(1-a^2)*Var(S)
+    #=> Var(U)=(1-a^2)*Var(S)
     #--- renaming input arguments
     var_error <- var_state
     var_state <- var_ar
