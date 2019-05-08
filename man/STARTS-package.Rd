@@ -1,5 +1,5 @@
 %% File Name: STARTS-package.Rd
-%% File Version: 0.12
+%% File Version: 0.13
 
 \name{STARTS-package}
 \alias{STARTS-package}
@@ -22,18 +22,19 @@ Maintainer: \packageMaintainer{STARTS}
 
 %% include references
 \references{
-Kenny, D. A., & Zautra, A. (1995). The trait-state-error 
-model for multiwave data. 
+Kenny, D. A., & Zautra, A. (1995). The trait-state-error
+model for multiwave data.
 \emph{Journal of Consulting and Clinical Psychology, 63}, 52-59.
+http://dx.doi.org/10.1037/0022-006X.63.1.52
 
 Kenny, D. A., & Zautra, A. (2001). Trait-state models for 
 longitudinal data. In L. M. Collins & A. G. Sayer (Eds.), 
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
 
-Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:  
-A Bayesian approach using Markov Chain Monte Carlo techniques. 
-\emph{Psychological Methods, 23}(3), 570-593.
+Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
+A Bayesian approach using Markov Chain Monte Carlo techniques.
+\emph{Psychological Methods, 23}(3), 570-593. http://dx.doi.org/10.1037/met0000155
 }
 
 %\seealso{

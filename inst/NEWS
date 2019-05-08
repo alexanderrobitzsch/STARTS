@@ -24,13 +24,13 @@ and (if necessary) a corresponding dataset.
 
 
 ------------------------------------------------------------------------
-VERSIONS STARTS 1.2  |  2018-12-14  |  Last: STARTS 1.2-1
+VERSIONS STARTS 1.2  |  2019-05-08  |  Last: STARTS 1.2-6
 ------------------------------------------------------------------------
 
-xxx   * ...
+NOTE  * included datasets of Wagner, Luedtke and Trautwein (2016, JOP)
 
 
-DATA  * included/modified datasets: ---
+DATA  * included/modified datasets: data.starts03
 EXAMP * included/modified examples: ---
 
 

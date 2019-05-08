@@ -1,11 +1,14 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.13
+%% File Version: 0.191
 
 \name{data.starts}
 \alias{data.starts}
 \alias{data.starts01a}
 \alias{data.starts01b}
 \alias{data.starts02}
+\alias{data.starts03a}
+\alias{data.starts03b}
+\alias{data.starts03c}
 
 \docType{data}
 
@@ -22,6 +25,9 @@ Some datasets for illustration used in the examples of the
 data(data.starts01a)
 data(data.starts01b)
 data(data.starts02)
+data(data.starts03a)
+data(data.starts03b)
+data(data.starts03c)
 }
 
 
@@ -92,6 +98,11 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 \code{  .. ..- attr(*, "names")=chr [1:18] "a1" "a2" "a3" "a4" ...} \cr
 \code{  ..$ covmat:'data.frame':      18 obs. of  18 variables:} \cr
 
+\item \code{data.starts03a} contains data from Wagner, Luedtke and Trautwein (2016)
+of the total sample. \code{data.starts03b} contains covariance matrices for both
+gender groups. \code{data.starts03c} contains covariance matrices for both
+groups of different levels of depression.      
+
  }
 }
 
@@ -99,14 +110,20 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 \references{
 Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
-\emph{Psychological Methods, 23}(3), 570-593.
+\emph{Psychological Methods, 23}(3), 570-593. http://dx.doi.org/10.1037/met0000155
+
+Wagner, J., Luedtke, O., & Trautwein, U. (2016). Self-esteem is mostly stable across young 
+adulthood: Evidence from latent STARTS models. 
+\emph{Journal of Personality, 84}(4), 523-535.  \n
+http://dx.doi.org/10.1111/jopy.12178
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.
-\emph{Journal of Psychoeducational Assessment, 34}, 39-53.
+\emph{Journal of Psychoeducational Assessment, 34}, 39-53. \cr
+http://dx.doi.org/10.1177/0734282915582101
 }
 
 
 
 
-\keyword{datasets}
+%% \keyword{datasets}

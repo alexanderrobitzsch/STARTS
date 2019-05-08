@@ -1,5 +1,5 @@
 //// File Name: starts_rcpp_starts_uni.cpp
-//// File Version: 0.20
+//// File Version: 0.22
 
 
 // [[Rcpp::depends(RcppArmadillo)]]
@@ -14,8 +14,8 @@ using namespace arma;
 ///********************************************************************
 ///** starts_rcpp_starts_uni_cov
 // [[Rcpp::export]]
-Rcpp::NumericMatrix starts_rcpp_starts_uni_cov( double var_trait, double var_ar, double var_state,
-        double a, Rcpp::NumericVector time_index  )
+Rcpp::NumericMatrix starts_rcpp_starts_uni_cov( double var_trait, double var_ar,
+    double var_state, double a, Rcpp::NumericVector time_index  )
 {
     int W = time_index.size();
     Rcpp::NumericMatrix covmat(W,W);
@@ -33,6 +33,6 @@ Rcpp::NumericMatrix starts_rcpp_starts_uni_cov( double var_trait, double var_ar,
     //-- output
     return covmat;
 }
-///////////////////////////////////////////////////////////////
+///********************************************************************
 
 

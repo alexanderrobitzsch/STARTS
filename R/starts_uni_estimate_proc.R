@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate_proc.R
-## File Version: 0.41
+## File Version: 0.443
 
 starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits, nobs,
         est_var_trait,    est_var_ar, est_var_state, var_meas_error )
@@ -13,13 +13,12 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits, nobs
     if ( ! is.null(time_index) ){
         time_index <- time_index - time_index[1] + 1
     }
-
     # handle data input
     if ( ! is.null(data) ){
         nobs <- nrow(data)
         if ( sum( is.na(data) ) > 0 ){
             some_missings <- TRUE
-            suff_stat <- LAM::suff_stat_NA_pattern(data)
+            suff_stat <- LAM::suff_stat_NA_pattern(dat=data)
             # suff_stat <- starts_uni_estimate_proc_modify_suff_stat( suff_stat, var_meas_error)
         }
         data <- stats::na.omit(data)
@@ -49,6 +48,9 @@ starts_uni_estimate_proc <- function( data, time_index, covmat, pars_inits, nobs
     }
     #--- average standard deviation
     if ( ! some_missings){
+        if (is.data.frame(covmat)){
+            covmat <- as.matrix(covmat)
+        }
         sd0 <- mean( sqrt( diag(covmat) - var_meas_error )  )
     } else {
         sd0 <- mean( apply( data0, 2, stats::sd, na.rm=TRUE ) )

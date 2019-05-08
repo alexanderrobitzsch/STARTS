@@ -1,5 +1,5 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.897
+## File Version: 0.8996
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML",
@@ -151,12 +151,12 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     time$end <- Sys.time()
     #--- output
     res <- list( coef=coef, vcov=vcov, deviance=deviance, ic=ic,
-                    model_fit=model_fit, covmat_fitted=covmat_fitted, fit_LAM=fit_LAM, data0=data0,
-                    pars_inits=pars_inits, pars_lower=pars_lower, pars_upper=pars_upper,
-                    var_prop=var_prop,
-                    estimator=estimator, description=description, used_function=used_function,
+                    model_fit=model_fit, covmat=covmat, covmat_fitted=covmat_fitted,
+                    fit_LAM=fit_LAM, data0=data0, pars_inits=pars_inits, pars_lower=pars_lower,
+                    pars_upper=pars_upper, var_prop=var_prop, estimator=estimator,
+                    description=description, used_function=used_function,
                     constraints=constraints, use_pmle=use_pmle, use_amh=use_amh,
-                    some_missings=some_missings, time=time, CALL=CALL)
+                    some_missings=some_missings, time=time, CALL=CALL )
     class(res) <- "starts_uni"
     return(res)
 }
