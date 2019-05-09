@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.191
+%% File Version: 0.192
 
 \name{data.starts}
 \alias{data.starts}
@@ -114,12 +114,12 @@ A Bayesian approach using Markov Chain Monte Carlo techniques.
 
 Wagner, J., Luedtke, O., & Trautwein, U. (2016). Self-esteem is mostly stable across young 
 adulthood: Evidence from latent STARTS models. 
-\emph{Journal of Personality, 84}(4), 523-535.  \n
+\emph{Journal of Personality, 84}(4), 523-535. 
 http://dx.doi.org/10.1111/jopy.12178
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.
-\emph{Journal of Psychoeducational Assessment, 34}, 39-53. \cr
+\emph{Journal of Psychoeducational Assessment, 34}, 39-53. 
 http://dx.doi.org/10.1177/0734282915582101
 }
 
