@@ -1,8 +1,8 @@
 Package: STARTS
 Type: Package
 Title: Functions for the STARTS Model
-Version: 1.2-13
-Date: 2019-05-09 11:04:18
+Version: 1.2-14
+Date: 2019-05-09 11:11:44
 Author: Alexander Robitzsch [aut,cre], Oliver Luedtke [aut]
 Maintainer: Alexander Robitzsch <robitzsch@ipn.uni-kiel.de>
 Description: 
