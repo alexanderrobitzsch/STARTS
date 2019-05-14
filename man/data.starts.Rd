@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.192
+%% File Version: 0.193
 
 \name{data.starts}
 \alias{data.starts}
@@ -110,17 +110,17 @@ groups of different levels of depression.
 \references{
 Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
-\emph{Psychological Methods, 23}(3), 570-593. http://dx.doi.org/10.1037/met0000155
+\emph{Psychological Methods, 23}(3), 570-593. \doi{10.1037/met0000155}
 
 Wagner, J., Luedtke, O., & Trautwein, U. (2016). Self-esteem is mostly stable across young 
 adulthood: Evidence from latent STARTS models. 
 \emph{Journal of Personality, 84}(4), 523-535. 
-http://dx.doi.org/10.1111/jopy.12178
+\doi{10.1111/jopy.12178}
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.
 \emph{Journal of Psychoeducational Assessment, 34}, 39-53. 
-http://dx.doi.org/10.1177/0734282915582101
+\doi{10.1177/0734282915582101}
 }
 
 

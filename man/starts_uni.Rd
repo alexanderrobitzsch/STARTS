@@ -1,5 +1,5 @@
 %% File Name: starts_uni.Rd
-%% File Version: 0.682
+%% File Version: 0.683
 
 \name{starts_uni}
 \alias{starts_uni_cov}
@@ -193,7 +193,7 @@ Output of \code{starts_uni_sim} is a data frame containing simulated values.
 Kenny, D. A., & Zautra, A. (1995). The trait-state-error
 model for multiwave data.
 \emph{Journal of Consulting and Clinical Psychology, 63}, 52-59.
-http://dx.doi.org/10.1037/0022-006X.63.1.52
+\doi{10.1037/0022-006X.63.1.52}
 
 Kenny, D. A., & Zautra, A. (2001). Trait-state models for
 longitudinal data. In L. M. Collins & A. G. Sayer (Eds.),
@@ -202,7 +202,7 @@ Washington, DC, US: American Psychological Association.
 
 Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
-\emph{Psychological Methods, 23}(3), 570-593. http://dx.doi.org/10.1037/met0000155
+\emph{Psychological Methods, 23}(3), 570-593. \doi{10.1037/met0000155}
 }
 
 
