@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.193
+%% File Version: 0.197
 
 \name{data.starts}
 \alias{data.starts}
@@ -101,9 +101,52 @@ for the older and the younger cohort (Table 2). Variables \code{a} indicate item
 \item \code{data.starts03a} contains data from Wagner, Luedtke and Trautwein (2016)
 of the total sample. \code{data.starts03b} contains covariance matrices for both
 gender groups. \code{data.starts03c} contains covariance matrices for both
-groups of different levels of depression.      
+groups of different levels of depression. \cr
 
- }
+The structure of \code{data.starts03a} is
+
+\code{List of 2} \cr
+\code{ $ nobs  : num 4532} \cr
+\code{ $ covmat: num [1:6, 1:6] 0.236 0.164 0.147 0.129 0.13 ...} \cr
+\code{  ..- attr(*, "dimnames")=List of 2} \cr
+\code{  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr 
+
+
+The structure of \code{data.starts03b} is
+        
+\code{List of 2} \cr
+\code{ $ female:List of 2} \cr
+\code{  ..$ nobs  : num 2495} \cr
+\code{  ..$ covmat: num [1:6, 1:6] 0.22 0.158 0.139 0.18 0.116 ...} \cr
+\code{  .. ..- attr(*, "dimnames")=List of 2} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{ $ male  :List of 2} \cr
+\code{  ..$ nobs  : num 2037} \cr
+\code{  ..$ covmat: num [1:6, 1:6] 0.25 0.165 0.152 0.13 0.147 ...} \cr
+\code{  .. ..- attr(*, "dimnames")=List of 2} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+       
+        
+The structure of \code{data.starts03c} is
+        
+\code{List of 2} \cr
+\code{ $ high:List of 2} \cr
+\code{  ..$ nobs  : num 1342} \cr
+\code{  ..$ covmat: num [1:6, 1:6] 0.24 0.172 0.153 0.191 0.127 ...} \cr
+\code{  .. ..- attr(*, "dimnames")=List of 2} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{ $ low :List of 2} \cr
+\code{  ..$ nobs  : num 1742} \cr
+\code{  ..$ covmat: num [1:6, 1:6] 0.213 0.12 0.118 0.109 0.12 ...} \cr
+\code{  .. ..- attr(*, "dimnames")=List of 2} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+\code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
+
+}
 }
 
 

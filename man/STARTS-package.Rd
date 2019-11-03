@@ -1,5 +1,5 @@
 %% File Name: STARTS-package.Rd
-%% File Version: 0.14
+%% File Version: 0.15
 
 \name{STARTS-package}
 \alias{STARTS-package}
@@ -31,6 +31,7 @@ Kenny, D. A., & Zautra, A. (2001). Trait-state models for
 longitudinal data. In L. M. Collins & A. G. Sayer (Eds.), 
 \emph{New methods for the analysis of change} (pp. 243-263).
 Washington, DC, US: American Psychological Association.
+\doi{10.1037/10409-008}
 
 Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.

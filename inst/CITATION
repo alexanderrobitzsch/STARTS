@@ -1,21 +1,36 @@
-citHeader("To cite the 'STARTS' package in publications use:")
+
 
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
 vers <- paste("R package version", meta$Version)
+pkg <- meta$Package
 
-citEntry(entry="Manual",
-         title = "{STARTS: Functions for the STARTS model}",
-         author = personList(
-                     as.person("Alexander Robitzsch"), 
-                     as.person("Oliver Luedtke")
-                  ),
+#*** package and its name
+pkg_title <- meta$Title
+
+#*** list of authors
+person_list1 <- c(
+                   person(given = "Alexander", family = "Robitzsch"),
+                   person(given = "Oliver", family = "Luedtke")
+                      )
+
+person_list2 <- "Robitzsch, A., & Luedtke, O."
+
+
+#*******************************************
+# automatic generation of citation key
+
+citHeader( paste0( "To cite the '", pkg , "' package in publications use:") )
+
+citEntry(key = paste0(tolower(pkg), "_", vers), entry = "Manual",
+         title = paste0( pkg , ": " , pkg_title ) ,
+         author = personList( person_list1 ),
          year = year,
          note = vers,
-         url = "https://CRAN.R-project.org/package=STARTS" ,
+         url =  paste0( "https://CRAN.R-project.org/package=", pkg) ,
          textVersion =
-             paste0("Robitzsch, A., & Luedtke, O. (",  year,"). 
-               STARTS: Functions for the STARTS model. ",
-               vers, 
-               ". https://CRAN.R-project.org/package=STARTS")
-               )
+         paste0( person_list2 , " (",   year, "). " , 
+               pkg , ": " , pkg_title , ". ",
+               vers, paste0( ". https://CRAN.R-project.org/package=", pkg) )
+)
+
 
