@@ -1,5 +1,5 @@
 %% File Name: data.starts.Rd
-%% File Version: 0.197
+%% File Version: 0.198
 
 \name{data.starts}
 \alias{data.starts}
@@ -110,11 +110,11 @@ The structure of \code{data.starts03a} is
 \code{ $ covmat: num [1:6, 1:6] 0.236 0.164 0.147 0.129 0.13 ...} \cr
 \code{  ..- attr(*, "dimnames")=List of 2} \cr
 \code{  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
-\code{  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr 
+\code{  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
 
 
 The structure of \code{data.starts03b} is
-        
+
 \code{List of 2} \cr
 \code{ $ female:List of 2} \cr
 \code{  ..$ nobs  : num 2495} \cr
@@ -128,10 +128,10 @@ The structure of \code{data.starts03b} is
 \code{  .. ..- attr(*, "dimnames")=List of 2} \cr
 \code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
 \code{  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...} \cr
-       
-        
+
+
 The structure of \code{data.starts03c} is
-        
+
 \code{List of 2} \cr
 \code{ $ high:List of 2} \cr
 \code{  ..$ nobs  : num 1342} \cr
@@ -155,14 +155,14 @@ Luedtke, O., Robitzsch, A., & Wagner, J. (2018). More stable estimation of the S
 A Bayesian approach using Markov Chain Monte Carlo techniques.
 \emph{Psychological Methods, 23}(3), 570-593. \doi{10.1037/met0000155}
 
-Wagner, J., Luedtke, O., & Trautwein, U. (2016). Self-esteem is mostly stable across young 
-adulthood: Evidence from latent STARTS models. 
-\emph{Journal of Personality, 84}(4), 523-535. 
+Wagner, J., Luedtke, O., & Trautwein, U. (2016). Self-esteem is mostly stable across young
+adulthood: Evidence from latent STARTS models.
+\emph{Journal of Personality, 84}(4), 523-535.
 \doi{10.1111/jopy.12178}
 
 Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.
-\emph{Journal of Psychoeducational Assessment, 34}, 39-53. 
+\emph{Journal of Psychoeducational Assessment, 34}, 39-53.
 \doi{10.1177/0734282915582101}
 }
 

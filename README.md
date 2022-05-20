@@ -8,7 +8,7 @@ If you use `STARTS` and have suggestions for improvement or have found bugs, ple
 
 The manual may be found here [https://alexanderrobitzsch.github.io/STARTS/](https://alexanderrobitzsch.github.io/STARTS/) 
 
-#### CRAN version `STARTS` 1.2-35 (2019-11-04)
+#### CRAN version `STARTS` 1.3-8 (2022-05-19)
 
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version-last-release/STARTS)](https://cran.r-project.org/package=STARTS)
@@ -22,9 +22,9 @@ The CRAN version can be installed from within R using:
 utils::install.packages("STARTS")
 ```
 
-#### GitHub version `STARTS` 1.3-2 (2019-11-04)
+#### GitHub version `STARTS` 1.4-2 (2022-05-20)
 
-[![](https://img.shields.io/badge/github%20version-1.3--2-orange.svg)](https://github.com/alexanderrobitzsch/STARTS)&#160;&#160;
+[![](https://img.shields.io/badge/github%20version-1.4--2-orange.svg)](https://github.com/alexanderrobitzsch/STARTS)&#160;&#160;
 
 The version hosted [here](https://github.com/alexanderrobitzsch/STARTS) is the development version of `STARTS`. 
 The GitHub version can be installed using `devtools` as:

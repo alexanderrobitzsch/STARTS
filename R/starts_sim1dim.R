@@ -1,8 +1,8 @@
 ## File Name: starts_sim1dim.R
-## File Version: 0.09
+## File Version: 0.11
 
-#######################################################
-# STARTS unidimensional model: simulation
+
+#--- STARTS unidimensional model: simulation
 starts_sim1dim <- function( N, W, var_trait, var_ar, var_state, a )
 {
     starts_deprecated( old="starts_sim1dim", new="starts_uni_sim" )

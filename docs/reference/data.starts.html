@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -38,7 +42,6 @@
 <meta property="og:title" content="Datasets in the <span class="pkg">STARTS</span> Package — data.starts" />
 <meta property="og:description" content="Some datasets for illustration used in the examples of the
 STARTS package." />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -56,7 +59,7 @@ STARTS package." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -70,7 +73,7 @@ STARTS package." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">STARTS</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Versions">1.3-vv</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Versions">1.4-vv</span>
       </span>
     </div>
 
@@ -88,7 +91,7 @@ STARTS package." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/alexanderrobitzsch/STARTS">
+  <a href="https://github.com/alexanderrobitzsch/STARTS/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -196,7 +199,7 @@ groups of different levels of depression. <br /></p>
 <code>  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...</code> <br />
 <code>  .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...</code> <br /></p>
 
-<p>The structure of <code>data.starts03b</code> is</p>        
+<p>The structure of <code>data.starts03b</code> is</p>
 <p><code>List of 2</code> <br />
 <code> $ female:List of 2</code> <br />
 <code>  ..$ nobs  : num 2495</code> <br />
@@ -209,9 +212,9 @@ groups of different levels of depression. <br /></p>
 <code>  ..$ covmat: num [1:6, 1:6] 0.25 0.165 0.152 0.13 0.147 ...</code> <br />
 <code>  .. ..- attr(*, "dimnames")=List of 2</code> <br />
 <code>  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...</code> <br />
-<code>  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...</code> <br /></p>       
-        
-<p>The structure of <code>data.starts03c</code> is</p>        
+<code>  .. .. ..$ : chr [1:6] "T1" "T2" "T3" "T4" ...</code> <br /></p>
+
+<p>The structure of <code>data.starts03c</code> is</p>
 <p><code>List of 2</code> <br />
 <code> $ high:List of 2</code> <br />
 <code>  ..$ nobs  : num 1342</code> <br />
@@ -232,23 +235,20 @@ groups of different levels of depression. <br /></p>
     <p>Luedtke, O., Robitzsch, A., &amp; Wagner, J. (2018). More stable estimation of the STARTS model:
 A Bayesian approach using Markov Chain Monte Carlo techniques.
 <em>Psychological Methods, 23</em>(3), 570-593. doi: <a href='https://doi.org/10.1037/met0000155'>10.1037/met0000155</a></p>
-<p>Wagner, J., Luedtke, O., &amp; Trautwein, U. (2016). Self-esteem is mostly stable across young 
-adulthood: Evidence from latent STARTS models. 
-<em>Journal of Personality, 84</em>(4), 523-535. 
+<p>Wagner, J., Luedtke, O., &amp; Trautwein, U. (2016). Self-esteem is mostly stable across young
+adulthood: Evidence from latent STARTS models.
+<em>Journal of Personality, 84</em>(4), 523-535.
 doi: <a href='https://doi.org/10.1111/jopy.12178'>10.1111/jopy.12178</a></p>
 <p>Wu, P.-C. (2016). Longitudinal stability of the Beck
 Depression Inventory II: A latent trait-state-occasion model.
-<em>Journal of Psychoeducational Assessment, 34</em>, 39-53. 
+<em>Journal of Psychoeducational Assessment, 34</em>, 39-53.
 doi: <a href='https://doi.org/10.1177/0734282915582101'>10.1177/0734282915582101</a></p>
 
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#format">Format</a></li>
-      <li><a href="#references">References</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -259,7 +259,7 @@ doi: <a href='https://doi.org/10.1177/0734282915582101'>10.1177/0734282915582101
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
