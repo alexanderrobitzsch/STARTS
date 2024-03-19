@@ -1,11 +1,11 @@
 ## File Name: starts_uni_estimate_prepare_fitting.R
-## File Version: 0.16
+## File Version: 0.17
 
 
 starts_uni_estimate_prepare_fitting <- function( pars_est, constraints, estimator,
         prior_var_trait, prior_var_ar, prior_var_state, prior_a, sd0, pars_inits, W)
 {
-    if ( estimator !="ML"){
+    if ( estimator !='ML'){
         constraints <- TRUE
     }
 

@@ -1,15 +1,16 @@
 ## File Name: starts_uni_estimate.R
-## File Version: 0.8996
+## File Version: 0.906
 
 
 starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="ML",
-        pars_inits=NULL, prior_var_trait=c(3,.33), prior_var_ar=c(3,.33), prior_var_state=c(3,.33),
-        prior_a=c(3,.5), est_var_trait=TRUE, est_var_ar=TRUE, est_var_state=TRUE, var_meas_error=0,
+        pars_inits=NULL, prior_var_trait=c(3,.33), prior_var_ar=c(3,.33),
+        prior_var_state=c(3,.33), prior_a=c(3,.5), est_var_trait=TRUE,
+        est_var_ar=TRUE, est_var_state=TRUE, var_meas_error=0,
         constraints=TRUE, time_index=NULL, type="stationary",
         n.burnin=5000, n.iter=20000, verbose=FALSE, optim_fct="optim", use_rcpp=TRUE )
 {
     CALL <- match.call()
-    time <- list( "start"=Sys.time() )
+    time <- list( 'start'=Sys.time() )
 
     #--- data input processing
     res <- starts_uni_estimate_proc( data=data, time_index=time_index, covmat=covmat,
@@ -34,10 +35,10 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     time_index_lags <- res$time_index_lags
 
     #--- define input data for the STARTS model
-    data <- list( "S"=covmat, "M"=M, "n"=nobs, "W"=W, suff_stat=suff_stat )
+    data <- list( 'S'=covmat, 'M'=M, 'n'=nobs, 'W'=W, suff_stat=suff_stat )
 
     #--- define likelihood function for the STARTS model
-    ind_M <- 1:W
+    ind_M <- 1L:W
     ind_S <- seq(W+1,W+4)
 
     if (some_missings){
@@ -68,8 +69,9 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
 
     #--- lower and upper bounds for parameters
     res <- starts_uni_estimate_prepare_fitting( pars_est=pars_est,
-                constraints=constraints, estimator=estimator, prior_var_trait=prior_var_trait,
-                prior_var_ar=prior_var_ar, prior_var_state=prior_var_state, prior_a=prior_a, sd0=sd0,
+                constraints=constraints, estimator=estimator,
+                prior_var_trait=prior_var_trait, prior_var_ar=prior_var_ar,
+                prior_var_state=prior_var_state, prior_a=prior_a, sd0=sd0,
                 pars_inits=pars_inits, W=W)
     pars_lower <- res$pars_lower
     pars_upper <- res$pars_upper
@@ -80,20 +82,21 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     #--- estimate model
     #- function and arguments
     use_pmle <- use_amh <- FALSE
-    if (estimator %in% c("ML", "PML")){
+    if (estimator %in% c('ML', 'PML')){
         LAM_fct <- LAM::pmle
         use_pmle <- TRUE
     }
-    if (estimator %in% c("MCMC") ){
+    if (estimator %in% c('MCMC') ){
         LAM_fct <- LAM::amh
         use_amh <- TRUE
     }
 
-    LAM_args <- list( data=data, nobs=data$n, pars=pars_inits, model=ll_model, prior=prior_model,
-                            pars_lower=pars_lower, pars_upper=pars_upper  )
+    LAM_args <- list( data=data, nobs=data$n, pars=pars_inits, model=ll_model,
+                            prior=prior_model, pars_lower=pars_lower,
+                            pars_upper=pars_upper )
 
     if (use_pmle){
-        LAM_args$method <- "L-BFGS-B"
+        LAM_args$method <- 'L-BFGS-B'
         LAM_args$verbose <- verbose
         LAM_args$optim_fct <- optim_fct
     }
@@ -118,23 +121,27 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     }
 
     #--- fitted covariance matrix
-    covmat_fitted <- starts_uni_cov_pars(W=W, pars=coef, pars_est=pars_est, time_index=time_index)
+    covmat_fitted <- starts_uni_cov_pars(W=W, pars=coef, pars_est=pars_est,
+                                time_index=time_index)
 
     #--- model fit
     model_fit <- NULL
     if (! some_missings ){
-        model_fit <- starts_estimate_model_fit( covmat=covmat, covmat_fitted=covmat_fitted, deviance=deviance,
-                        deviance_saturated=deviance_saturated, df_sem=df_sem, nobs=nobs,
-                        some_missings=some_missings)
+        model_fit <- starts_estimate_model_fit( covmat=covmat,
+                            covmat_fitted=covmat_fitted, deviance=deviance,
+                            deviance_saturated=deviance_saturated, df_sem=df_sem,
+                            nobs=nobs, some_missings=some_missings)
     }
 
     #--- variance proportions inference
-    vars <- c("var_trait", "var_ar", "var_state")
-    if ( estimator %in% c("ML","PML")){
-        var_prop <- starts_uni_estimate_variance_proportions_pml( coef=coef, vcov=vcov, vars=vars )
+    vars <- c('var_trait', 'var_ar', 'var_state')
+    if ( estimator %in% c('ML','PML')){
+        var_prop <- starts_uni_estimate_variance_proportions_pml( coef=coef,
+                                        vcov=vcov, vars=vars )
     }
-    if ( estimator %in% c("MCMC")){
-        var_prop <- starts_uni_estimate_variance_proportions_mcmc( fit_LAM=fit_LAM, vars=vars )
+    if ( estimator %in% c('MCMC')){
+        var_prop <- starts_uni_estimate_variance_proportions_mcmc( fit_LAM=fit_LAM,
+                                        vars=vars )
     }
 
     #--- description
@@ -152,11 +159,12 @@ starts_uni_estimate <- function( data=NULL, covmat=NULL, nobs=NULL, estimator="M
     #--- output
     res <- list( coef=coef, vcov=vcov, deviance=deviance, ic=ic,
                     model_fit=model_fit, covmat=covmat, covmat_fitted=covmat_fitted,
-                    fit_LAM=fit_LAM, data0=data0, pars_inits=pars_inits, pars_lower=pars_lower,
-                    pars_upper=pars_upper, var_prop=var_prop, estimator=estimator,
-                    description=description, used_function=used_function,
-                    constraints=constraints, use_pmle=use_pmle, use_amh=use_amh,
-                    some_missings=some_missings, time=time, CALL=CALL )
-    class(res) <- "starts_uni"
+                    fit_LAM=fit_LAM, data0=data0, pars_inits=pars_inits,
+                    pars_lower=pars_lower, pars_upper=pars_upper, var_prop=var_prop,
+                    estimator=estimator, description=description,
+                    used_function=used_function, constraints=constraints,
+                    use_pmle=use_pmle, use_amh=use_amh, some_missings=some_missings,
+                    time=time, CALL=CALL )
+    class(res) <- 'starts_uni'
     return(res)
 }

@@ -1,8 +1,8 @@
 ## File Name: starts_uni_sim.R
-## File Version: 0.13
+## File Version: 0.142
 
-#######################################################
-# STARTS unidimensional model: simulation
+
+#-- STARTS unidimensional model: simulation
 starts_uni_sim <- function( N, W, var_trait, var_ar, var_state, a, time_index=NULL )
 {
     # var_state <- var_disturbance / ( 1 - a^2 )
@@ -14,12 +14,12 @@ starts_uni_sim <- function( N, W, var_trait, var_ar, var_state, a, time_index=NU
     #---
     var_disturbance <- (1-a^2)*var_state
     matr <- matrix( NA, nrow=N, ncol=W )
-    colnames(matr) <- paste0("W",1:W)
+    colnames(matr) <- paste0('W', 1L:W)
     states <- matr
     trait <- stats::rnorm( N, sd=sqrt( var_trait ))
     ww <- 1
     states[,ww] <- stats::rnorm( N, sd=sqrt( var_state ))
-    for ( ww in 2:W){
+    for ( ww in 2L:W){
         states[,ww] <- a*states[,ww-1] + stats::rnorm( N, sd=sqrt(var_disturbance))
     }
     matr <- trait + states + stats::rnorm( N*W, sd=sqrt( var_error ))
@@ -29,4 +29,3 @@ starts_uni_sim <- function( N, W, var_trait, var_ar, var_state, a, time_index=NU
     #--- output
     return(matr)
 }
-#######################################################################

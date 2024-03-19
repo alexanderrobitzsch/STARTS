@@ -1,11 +1,11 @@
 ## File Name: starts_uni_cov.R
-## File Version: 0.40
+## File Version: 0.41
 
 starts_uni_cov <- function(W, var_trait, var_ar, var_state, a, time_index=NULL,
     add_meas_error=NULL )
 {
     if ( is.null(time_index) ){
-        time_index <- 1:W
+        time_index <- 1L:W
     }
     covmat <- starts_rcpp_starts_uni_cov( var_trait=var_trait, var_ar=var_ar,
                     var_state=var_state, a=a, time_index=time_index )

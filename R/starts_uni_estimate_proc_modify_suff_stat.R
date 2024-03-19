@@ -1,14 +1,14 @@
 ## File Name: starts_uni_estimate_proc_modify_suff_stat.R
-## File Version: 0.04
+## File Version: 0.06
 
 
 starts_uni_estimate_proc_modify_suff_stat <- function( suff_stat, var_meas_error)
 {
     NP <- suff_stat$NP
     var_index <- suff_stat$varindex
-    S <- suff_stat[["S"]]
+    S <- suff_stat[['S']]
     if ( ! is.null(var_meas_error) ){
-        for (pp in 1:NP){
+        for (pp in 1L:NP){
             var_pp <- var_meas_error[ var_index[[pp]] ]
             if ( is.matrix(var_pp) | is.data.frame(var_pp) ){
                 var_pp <- var_pp[1,]
