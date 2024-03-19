@@ -21,7 +21,8 @@ person_list2 <- "Robitzsch, A., & Luedtke, O."
 
 citHeader( paste0( "To cite the '", pkg , "' package in publications use:") )
 
-citEntry(key = paste0(tolower(pkg), "_", vers), entry = "Manual",
+bibentry(key = paste0(tolower(pkg), "_", vers), 
+         bibtype = "Manual",
          title = paste0( pkg , ": " , pkg_title ) ,
          author = personList( person_list1 ),
          year = year,
